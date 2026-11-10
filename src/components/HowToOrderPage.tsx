@@ -140,7 +140,7 @@ export const HowToOrderPage: React.FC<HowToOrderPageProps> = ({
             className="cartoon-btn-call px-6 py-3 rounded-2xl flex items-center gap-2 text-white font-display text-base font-bold shadow-xl"
           >
             <Phone className="w-4 h-4" />
-            <span>028 9458 1596</span>
+            <span>{SHOP_INFO.displayPhone}</span>
           </a>
         </div>
       </div>

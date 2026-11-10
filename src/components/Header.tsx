@@ -17,10 +17,12 @@ export const Header: React.FC<HeaderProps> = ({
   setIsDrawerOpen,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
   const totalItems = orderList.reduce((acc, curr) => acc + curr.quantity, 0);
 
-  const navLinks: { id: PageId; label: string }[] = [
+  const navLinks: { id: PageId; label: string; isLive?: boolean }[] = [
     { id: 'home', label: 'Home' },
+    { id: 'todays-menu', label: "Today's Menu", isLive: true },
     { id: 'menu', label: 'Full Menu' },
     { id: 'deals', label: 'Deals & Boxes' },
     { id: 'location', label: 'Location & Hours' },
@@ -35,7 +37,7 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-6 h-22 sm:h-26 py-2">
+        <div className="flex items-center justify-between gap-4 h-20 sm:h-24 py-2">
           
           {/* Zone 1: Brand Zone with BIGGER, Highly Visible Transparent Logo */}
           <button
@@ -43,10 +45,10 @@ export const Header: React.FC<HeaderProps> = ({
               setCurrentPage('home');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="flex items-center gap-3 text-left focus:outline-none group shrink-0"
+            className="flex items-center gap-2.5 sm:gap-3 text-left focus:outline-none group shrink-0"
           >
             {/* Bigger Logo Container */}
-            <div className="relative w-18 h-18 sm:w-22 sm:h-22 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
               <img
                 src="/assets/aistudio/kebab_nite_logo_nobg.png"
                 alt="Kebab Nite Logo"
@@ -56,17 +58,17 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             
             <div className="flex flex-col justify-center">
-              <span className="font-display text-2xl sm:text-3xl font-black tracking-tight text-white group-hover:text-red-400 transition-colors leading-none drop-shadow-sm">
+              <span className="font-display text-xl sm:text-2xl lg:text-3xl font-black tracking-tight text-white group-hover:text-red-400 transition-colors leading-none drop-shadow-sm">
                 Kebab Nite
               </span>
-              <span className="text-xs sm:text-sm font-bold text-amber-400 tracking-wider mt-0.5">
+              <span className="text-[11px] sm:text-xs font-bold text-amber-400 tracking-wider mt-0.5">
                 18A High Street, Carrickfergus
               </span>
             </div>
           </button>
 
           {/* Zone 2: Navigation Links */}
-          <nav className="hidden md:flex items-center gap-6 text-sm font-semibold">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-6 text-sm font-semibold">
             {navLinks.map((link) => {
               const isActive = currentPage === link.id;
               return (
@@ -76,13 +78,19 @@ export const Header: React.FC<HeaderProps> = ({
                     setCurrentPage(link.id);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className={`relative py-1.5 transition-colors whitespace-nowrap shrink-0 text-sm ${
+                  className={`relative py-1.5 transition-colors whitespace-nowrap shrink-0 text-sm flex items-center gap-1.5 ${
                     isActive
                       ? 'text-red-500 font-bold'
                       : 'text-slate-200 hover:text-white'
                   }`}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  {link.isLive && (
+                    <span className="px-1.5 py-0.2 rounded-full bg-red-600/30 border border-red-500 text-[9px] font-black uppercase text-amber-300 flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-500 live-pulse" />
+                      LIVE
+                    </span>
+                  )}
                   {isActive && (
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 rounded-full" />
                   )}
@@ -92,11 +100,11 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Zone 3: Primary Action & Quick Order List */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* Order Notepad button */}
             <button
               onClick={() => setIsDrawerOpen(true)}
-              className="relative flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-red-500/30 text-white text-xs font-bold transition-all hover:scale-105 shadow-sm"
+              className="relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-red-500/30 text-white text-xs font-bold transition-all hover:scale-105 shadow-sm"
               title="View my phone order list"
             >
               <ShoppingBag className="w-4 h-4 text-amber-400" />
@@ -111,9 +119,9 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Header Call button (Red & White) */}
             <a
               href={`tel:${SHOP_INFO.phone}`}
-              className="cartoon-btn-call flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold tracking-wide shadow-md whitespace-nowrap"
+              className="cartoon-btn-call flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wide shadow-md whitespace-nowrap"
             >
-              <Phone className="w-4 h-4 animate-bounce" />
+              <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-bounce" />
               <span className="hidden sm:inline">Order:</span>
               <span className="font-mono text-xs">{SHOP_INFO.displayPhone}</span>
             </a>
@@ -121,7 +129,7 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Mobile Menu Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-white hover:text-red-400 rounded-lg bg-neutral-900 border border-neutral-700"
+              className="lg:hidden p-2 text-white hover:text-red-400 rounded-lg bg-neutral-900 border border-neutral-700"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
@@ -133,7 +141,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0e0e12] border-b border-red-500/30 px-4 pt-2 pb-4 space-y-2">
+        <div className="lg:hidden bg-[#0e0e12] border-b border-red-500/30 px-4 pt-2 pb-4 space-y-2">
           {navLinks.map((link) => {
             const isActive = currentPage === link.id;
             return (
@@ -144,13 +152,19 @@ export const Header: React.FC<HeaderProps> = ({
                   setMobileMenuOpen(false);
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+                className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold transition-colors flex items-center justify-between ${
                   isActive
                     ? 'bg-red-600/20 text-red-400 border border-red-500/40'
                     : 'text-slate-200 hover:bg-neutral-800'
                 }`}
               >
-                {link.label}
+                <span>{link.label}</span>
+                {link.isLive && (
+                  <span className="px-2 py-0.5 rounded-full bg-red-600 text-[10px] font-black text-white flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white live-pulse" />
+                    LIVE
+                  </span>
+                )}
               </button>
             );
           })}

@@ -365,7 +365,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
           className="cartoon-btn-call inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white shadow-xl"
         >
           <Phone className="w-4 h-4 animate-bounce" />
-          <span>Call 028 9458 1596 Now</span>
+          <span>Call {SHOP_INFO.displayPhone} Now</span>
         </a>
       </div>
 

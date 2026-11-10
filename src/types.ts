@@ -1,4 +1,4 @@
-export type PageId = 'home' | 'menu' | 'deals' | 'location' | 'how-to-order' | 'privacy-policy';
+export type PageId = 'home' | 'todays-menu' | 'menu' | 'deals' | 'location' | 'how-to-order' | 'privacy-policy';
 
 export interface OrderItem {
   itemId: string;

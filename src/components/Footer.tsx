@@ -69,6 +69,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li>
                 <button
                   onClick={() => {
+                    onNavigate('todays-menu');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="text-red-400 hover:text-white transition-colors font-bold flex items-center gap-1.5"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 live-pulse" />
+                  <span>Today's Live Menu</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
                     onNavigate('menu');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}

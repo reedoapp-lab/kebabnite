@@ -25,8 +25,8 @@ export const SHOP_INFO = {
   name: 'Kebab Nite',
   address: '18A High street, Carrickfergus, BT38 7AF',
   postcode: 'BT38 7AF',
-  phone: '02894581596',
-  displayPhone: '028 9458 1596',
+  phone: '02893321805',
+  displayPhone: '028 9332 1805',
   email: 'orders@kebabnite.co.uk',
   hours: [
     { day: 'Monday', time: '4:00 PM – Midnight' },

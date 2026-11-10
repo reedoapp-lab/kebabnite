@@ -11,6 +11,8 @@ import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
 import { Footer } from './components/Footer';
 import { MobileBottomCallBar } from './components/MobileBottomCallBar';
 import { OrderDrawer } from './components/OrderDrawer';
+import { TodayLiveTicker } from './components/TodayLiveTicker';
+import { TodaysMenuPage } from './components/TodaysMenuPage';
 import { PageId, OrderItem } from './types';
 import { SHOP_INFO } from './data/menuData';
 import { Phone, Star } from 'lucide-react';
@@ -65,6 +67,9 @@ export default function App() {
         orderList={orderList}
         setIsDrawerOpen={setIsDrawerOpen}
       />
+
+      {/* Real-time Ticker & Store Clock (Always visible across pages) */}
+      <TodayLiveTicker onNavigate={setCurrentPage} />
 
       {/* Main Content Area Based on Page */}
       <main className="flex-1 pb-16 sm:pb-0">
@@ -204,6 +209,13 @@ export default function App() {
               </div>
             </section>
           </>
+        )}
+
+        {currentPage === 'todays-menu' && (
+          <TodaysMenuPage
+            onAddToOrder={handleAddToOrder}
+            onNavigate={setCurrentPage}
+          />
         )}
 
         {currentPage === 'menu' && (
