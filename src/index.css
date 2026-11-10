@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-fredoka: 'Fredoka', cursive, sans-serif;
+    --font-jakarta: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-jakarta);
+  }
+
+  body {
+    background-color: #08080a;
+    color: #f8fafc;
+  }
+}
+
+.font-display {
+  font-family: 'Fredoka', cursive, sans-serif;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom Cartoonish & Vibrant UI Effects (Black, Red, White + Amber Accent) */
+.cartoon-card {
+  background: linear-gradient(180deg, #131316 0%, #0a0a0c 100%);
+  border: 2px solid rgba(220, 38, 38, 0.2);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 0 15px rgba(220, 38, 38, 0.08);
+  border-radius: 1.25rem;
+}
+
+.cartoon-card:hover {
+  border-color: rgba(220, 38, 38, 0.5);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.8), 0 0 25px rgba(220, 38, 38, 0.2);
+}
+
+.cartoon-btn-primary {
+  background: linear-gradient(180deg, #e11d48 0%, #be123c 100%);
+  color: #ffffff;
+  border-bottom: 4px solid #881337;
+  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.35);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cartoon-btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.cartoon-btn-primary:active {
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+  box-shadow: 0 2px 10px rgba(225, 29, 72, 0.25);
+}
+
+.cartoon-btn-call {
+  background: linear-gradient(180deg, #dc2626 0%, #b91c1c 100%);
+  color: #ffffff;
+  border-bottom: 4px solid #7f1d1d;
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cartoon-btn-call:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.cartoon-btn-call:active {
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+}
+
+.cartoon-btn-amber {
+  background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+  color: #000000;
+  border-bottom: 4px solid #92400e;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cartoon-btn-amber:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.cartoon-btn-amber:active {
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+}
+
+.cartoon-awning-stripes {
+  background: repeating-linear-gradient(
+    90deg,
+    #dc2626,
+    #dc2626 24px,
+    #ffffff 24px,
+    #ffffff 48px
+  );
+}
+
+.glow-red {
+  filter: drop-shadow(0 0 25px rgba(220, 38, 38, 0.5));
+}
+
+.glow-amber {
+  filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.45));
+}

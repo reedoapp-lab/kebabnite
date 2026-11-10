@@ -1,0 +1,6 @@
+{
+  "name": "Kebab Nite",
+  "description": "Carrickfergus' favorite late-night kebab, pizza, and fast-food takeaway with quick phone ordering, daily specials, and full menu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
