@@ -69,7 +69,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
   };
 
   return (
-    <section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="py-6 sm:py-12 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       
       {/* Toast alert when item is added (Red, no green) */}
       {addedNotice && (
@@ -80,15 +80,15 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
       )}
 
       {/* Menu Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 mb-6 sm:mb-8">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/15 border border-red-500/30 text-red-400 text-xs font-bold mb-2">
             <span>🥙 Carrickfergus Takeaway Menu</span>
           </div>
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+          <h1 className="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight">
             Our Complete Menu
           </h1>
-          <p className="text-sm text-slate-300 mt-1">
+          <p className="text-xs sm:text-sm text-slate-300 mt-1">
             Pick your favorites, add them to your notepad, then tap to call <strong className="text-red-400">{SHOP_INFO.displayPhone}</strong>.
           </p>
         </div>
@@ -96,7 +96,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
         {/* Quick Call Button */}
         <a
           href={`tel:${SHOP_INFO.phone}`}
-          className="cartoon-btn-call px-4 py-2.5 rounded-xl text-white text-xs font-bold flex items-center gap-2 self-start md:self-auto shadow-md"
+          className="cartoon-btn-call px-4 py-2.5 rounded-xl text-white text-xs font-bold flex items-center justify-center gap-2 self-stretch sm:self-auto shadow-md"
         >
           <Phone className="w-4 h-4" />
           <span>Call: {SHOP_INFO.displayPhone}</span>
@@ -104,7 +104,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
       </div>
 
       {/* Search & Dietary Filters Bar */}
-      <div className="mb-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 bg-[#111114] p-3 rounded-2xl border border-red-900/30">
+      <div className="mb-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 bg-[#111114] p-2.5 sm:p-3 rounded-2xl border border-red-900/30">
         
         {/* Search input */}
         <div className="relative flex-1">
@@ -114,7 +114,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search kebabs, hogies, pizzas, burgers, chips, dips..."
-            className="w-full pl-10 pr-4 py-2 rounded-xl bg-neutral-900 border border-neutral-700 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-red-500 transition-colors"
+            className="w-full pl-10 pr-4 py-2 rounded-xl bg-neutral-900 border border-neutral-700 text-white placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-red-500 transition-colors"
           />
           {searchQuery && (
             <button
@@ -130,7 +130,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
         <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={() => setFilterSpicyOnly(!filterSpicyOnly)}
-            className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all ${
+            className={`flex-1 sm:flex-none px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all ${
               filterSpicyOnly
                 ? 'bg-red-600 text-white border border-red-400'
                 : 'bg-neutral-900 text-slate-300 border border-neutral-700 hover:border-red-400/50'
@@ -142,7 +142,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
 
           <button
             onClick={() => setFilterVegOnly(!filterVegOnly)}
-            className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all ${
+            className={`flex-1 sm:flex-none px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all ${
               filterVegOnly
                 ? 'bg-amber-500 text-black border border-amber-400'
                 : 'bg-neutral-900 text-slate-300 border border-neutral-700 hover:border-amber-400/50'
@@ -154,8 +154,8 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
         </div>
       </div>
 
-      {/* Category Tabs (Segmented Buttons) */}
-      <div className="mb-8 overflow-x-auto pb-2 scrollbar-none">
+      {/* Category Tabs (Segmented Buttons) - smooth horizontal swiping on mobile */}
+      <div className="mb-6 overflow-x-auto pb-2 scrollbar-none -mx-3 px-3 sm:mx-0 sm:px-0">
         <div className="flex items-center gap-2 min-w-max">
           {CATEGORIES.map((cat) => {
             const isActive = selectedCategory === cat.id;
@@ -210,7 +210,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {filteredItems.map((item) => {
             const currentVariant = selectedVariants[item.id] || (item.variants ? item.variants[0] : null);
             const displayPrice = currentVariant ? currentVariant.price : item.price;
@@ -218,7 +218,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
             return (
               <div
                 key={item.id}
-                className="cartoon-card overflow-hidden flex flex-col justify-between group transition-all duration-200 hover:-translate-y-0.5"
+                className="cartoon-card overflow-hidden flex flex-col justify-between group transition-all duration-200 hover:-translate-y-0.5 h-full"
               >
                 {/* Realistic Menu Item Photo */}
                 {item.image && (

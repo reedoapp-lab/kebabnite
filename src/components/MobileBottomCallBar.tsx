@@ -16,8 +16,8 @@ export const MobileBottomCallBar: React.FC<MobileBottomCallBarProps> = ({
   const totalPrice = orderList.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-2 sm:hidden bg-[#09090b]/95 backdrop-blur-md border-t border-red-600/30 shadow-[0_-5px_20px_rgba(0,0,0,0.8)]">
-      <div className="flex items-center gap-2 max-w-md mx-auto">
+    <div className="fixed bottom-0 left-0 right-0 z-50 px-3 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] sm:hidden bg-[#09090b]/95 backdrop-blur-md border-t border-red-600/30 shadow-[0_-5px_20px_rgba(0,0,0,0.8)]">
+      <div className="flex items-center gap-2 max-w-md mx-auto w-full">
         {/* Order Notepad Button */}
         <button
           onClick={() => setIsDrawerOpen(true)}

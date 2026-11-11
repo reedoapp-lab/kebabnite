@@ -6,7 +6,7 @@ export const LocationPage: React.FC = () => {
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Kebab Nite 18A High street Carrickfergus BT38 7AF')}`;
 
   return (
-    <div className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+    <div className="py-6 sm:py-12 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8 sm:space-y-12">
       
       {/* Page Header */}
       <div className="text-center max-w-2xl mx-auto">
@@ -14,23 +14,23 @@ export const LocationPage: React.FC = () => {
           <MapPin className="w-3.5 h-3.5" />
           <span>Carrickfergus Town Centre</span>
         </div>
-        <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+        <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
           Find Us & Opening Times
         </h1>
-        <p className="text-sm sm:text-base text-slate-300 mt-2">
+        <p className="text-xs sm:text-base text-slate-300 mt-2">
           Drop by 18A High Street for rapid counter collection, or call for fast hot delivery straight to your living room.
         </p>
       </div>
 
       {/* Main Grid: Store Info Cards & Interactive Map View */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
         
         {/* Left Column: Contact details & Opening Hours */}
-        <div className="lg:col-span-6 space-y-6">
+        <div className="lg:col-span-6 space-y-5 sm:space-y-6">
           
           {/* Shop Card with Transparent Logo */}
-          <div className="cartoon-card p-6 sm:p-7 space-y-5">
-            <div className="flex items-start justify-between gap-4">
+          <div className="cartoon-card p-4 sm:p-7 space-y-4 sm:space-y-5">
+            <div className="flex items-start justify-between gap-3 sm:gap-4">
               <div>
                 <span className="text-[11px] font-black uppercase tracking-wider text-red-500 block mb-1">
                   Our Takeaway Shop

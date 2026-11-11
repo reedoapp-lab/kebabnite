@@ -58,7 +58,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#08080a] text-slate-100 flex flex-col font-sans selection:bg-red-600 selection:text-white">
+    <div className="min-h-screen bg-[#08080a] text-slate-100 flex flex-col font-sans selection:bg-red-600 selection:text-white w-full overflow-x-hidden relative">
       
       {/* Global Header */}
       <Header
@@ -72,14 +72,14 @@ export default function App() {
       <TodayLiveTicker onNavigate={setCurrentPage} />
 
       {/* Main Content Area Based on Page */}
-      <main className="flex-1 pb-16 sm:pb-0">
+      <main className="flex-1 pb-28 sm:pb-0 w-full overflow-x-hidden">
         {currentPage === 'home' && (
           <>
             <HeroSection onNavigate={setCurrentPage} />
 
             {/* Quick Story & Quality Banner (Oven roasted, no charcoal/stone) */}
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <section className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 <div className="cartoon-card p-4 sm:p-5 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-red-600/20 text-red-500 flex items-center justify-center font-bold text-xl shrink-0">
                     🔥
@@ -100,7 +100,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="cartoon-card p-4 sm:p-5 flex items-center gap-3">
+                <div className="cartoon-card p-4 sm:p-5 flex items-center gap-3 sm:col-span-2 lg:col-span-1">
                   <div className="w-10 h-10 rounded-xl bg-red-600/20 text-red-500 flex items-center justify-center font-bold text-xl shrink-0">
                     ⚡
                   </div>
@@ -117,8 +117,8 @@ export default function App() {
             <WeekdaySpecialsBanner onAddToOrder={handleAddToOrder} />
 
             {/* Local Carrickfergus Testimonials / Community Love */}
-            <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-              <div className="text-center max-w-2xl mx-auto mb-8">
+            <section className="py-8 sm:py-12 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+              <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
                 <span className="text-xs font-bold uppercase tracking-wider text-red-500 block mb-1">
                   Local Word on High Street
                 </span>
@@ -127,45 +127,51 @@ export default function App() {
                 </h3>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <div className="cartoon-card p-5 space-y-3 bg-gradient-to-b from-[#141418] to-[#0c0c0e]">
-                  <div className="flex text-amber-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400" />
-                    ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                <div className="cartoon-card p-5 space-y-3 bg-gradient-to-b from-[#141418] to-[#0c0c0e] flex flex-col justify-between">
+                  <div>
+                    <div className="flex text-amber-400 mb-2">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-400" />
+                      ))}
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic">
+                      "The Mixed Hogie is simply unmatched in Carrick. Naan was warm and soft, packed full of meat and the garlic mayo is addictive. Piping hot on delivery!"
+                    </p>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic">
-                    "The Mixed Hogie is simply unmatched in Carrick. Naan was warm and soft, packed full of meat and the garlic mayo is addictive. Piping hot on delivery!"
-                  </p>
-                  <div className="text-xs text-amber-400 font-bold">
+                  <div className="text-xs text-amber-400 font-bold pt-2">
                     — Ryan M., Carrickfergus
                   </div>
                 </div>
 
-                <div className="cartoon-card p-5 space-y-3 bg-gradient-to-b from-[#141418] to-[#0c0c0e]">
-                  <div className="flex text-amber-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400" />
-                    ))}
+                <div className="cartoon-card p-5 space-y-3 bg-gradient-to-b from-[#141418] to-[#0c0c0e] flex flex-col justify-between">
+                  <div>
+                    <div className="flex text-amber-400 mb-2">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-400" />
+                      ))}
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic">
+                      "The 10\" Munchy Box feeds two of us easily with leftovers. Chicken goujons are crispy and the doner is proper quality, not greasy."
+                    </p>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic">
-                    "The 10" Munchy Box feeds two of us easily with leftovers. Chicken goujons are crispy and the doner is proper quality, not greasy."
-                  </p>
-                  <div className="text-xs text-amber-400 font-bold">
+                  <div className="text-xs text-amber-400 font-bold pt-2">
                     — Claire D., Greenisland
                   </div>
                 </div>
 
-                <div className="cartoon-card p-5 space-y-3 bg-gradient-to-b from-[#141418] to-[#0c0c0e]">
-                  <div className="flex text-amber-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400" />
-                    ))}
+                <div className="cartoon-card p-5 space-y-3 bg-gradient-to-b from-[#141418] to-[#0c0c0e] sm:col-span-2 lg:col-span-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex text-amber-400 mb-2">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-400" />
+                      ))}
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic">
+                      "Called at 11:30 PM on a Friday night, order was ready for collection in under 15 minutes. Staff on the phone are always friendly and polite."
+                    </p>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic">
-                    "Called at 11:30 PM on a Friday night, order was ready for collection in under 15 minutes. Staff on the phone are always friendly and polite."
-                  </p>
-                  <div className="text-xs text-amber-400 font-bold">
+                  <div className="text-xs text-amber-400 font-bold pt-2">
                     — Mark S., Eden
                   </div>
                 </div>
@@ -173,8 +179,8 @@ export default function App() {
             </section>
 
             {/* Quick Call & Location Banner (Black & Red theme) */}
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-              <div className="cartoon-card p-6 sm:p-10 bg-gradient-to-r from-[#170e12] via-[#220d14] to-[#170e12] border border-red-600/40 flex flex-col md:flex-row items-center justify-between gap-6">
+            <section className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
+              <div className="cartoon-card p-5 sm:p-8 lg:p-10 bg-gradient-to-r from-[#170e12] via-[#220d14] to-[#170e12] border border-red-600/40 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-6">
                 <div className="space-y-2 text-center md:text-left">
                   <span className="text-xs font-black uppercase tracking-wider text-red-500">
                     Ready to eat?
@@ -187,10 +193,10 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full md:w-auto">
                   <a
                     href={`tel:${SHOP_INFO.phone}`}
-                    className="cartoon-btn-call px-6 py-3.5 rounded-2xl flex items-center gap-2 text-white font-display text-base font-bold shadow-xl whitespace-nowrap"
+                    className="cartoon-btn-call w-full sm:w-auto px-6 py-3.5 rounded-2xl flex items-center justify-center gap-2 text-white font-display text-base font-bold shadow-xl whitespace-nowrap"
                   >
                     <Phone className="w-5 h-5 animate-pulse" />
                     <span>Call {SHOP_INFO.displayPhone}</span>
@@ -201,7 +207,7 @@ export default function App() {
                       setCurrentPage('menu');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="cartoon-btn-primary px-5 py-3.5 rounded-2xl text-white font-display text-sm font-bold shadow-md whitespace-nowrap"
+                    className="cartoon-btn-primary w-full sm:w-auto px-5 py-3.5 rounded-2xl text-white font-display text-sm font-bold shadow-md whitespace-nowrap text-center"
                   >
                     View Full Menu
                   </button>

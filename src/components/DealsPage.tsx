@@ -11,7 +11,7 @@ export const DealsPage: React.FC<DealsPageProps> = ({ onAddToOrder }) => {
   const boxDeals = MENU_ITEMS.filter((i) => i.category === 'boxes_deals');
 
   return (
-    <div className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+    <div className="py-6 sm:py-12 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8 sm:space-y-12">
       
       {/* Page Title */}
       <div className="text-center max-w-3xl mx-auto">
@@ -19,18 +19,17 @@ export const DealsPage: React.FC<DealsPageProps> = ({ onAddToOrder }) => {
           <Gift className="w-3.5 h-3.5" />
           <span>Carrickfergus Big Feasts & Bundles</span>
         </div>
-        <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+        <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
           Deals, Boxes & Group Feasts
         </h1>
-        <p className="text-sm sm:text-base text-slate-300 mt-2">
+        <p className="text-xs sm:text-base text-slate-300 mt-2">
           From our famous 10" and 12" Munchy Boxes to full family pizza bundles. All freshly oven-baked for rapid collection or hot door-to-door delivery.
         </p>
-
         {/* Quick CTA */}
-        <div className="mt-5 flex justify-center">
+        <div className="mt-4 sm:mt-5 flex justify-center">
           <a
             href={`tel:${SHOP_INFO.phone}`}
-            className="cartoon-btn-call inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white shadow-lg"
+            className="cartoon-btn-call inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white shadow-lg"
           >
             <Phone className="w-4 h-4" />
             <span>Call to Order: {SHOP_INFO.displayPhone}</span>
@@ -39,14 +38,14 @@ export const DealsPage: React.FC<DealsPageProps> = ({ onAddToOrder }) => {
       </div>
 
       {/* Weekday Specials Section */}
-      <div className="bg-[#121215] p-6 sm:p-8 rounded-3xl border border-red-900/40 shadow-xl">
+      <div className="bg-[#121215] p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-red-900/40 shadow-xl">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
           <div>
             <div className="flex items-center gap-2 text-red-500 font-bold text-xs uppercase tracking-wider">
               <Clock className="w-4 h-4" />
               <span>Monday – Thursday · 5PM to 9PM</span>
             </div>
-            <h2 className="font-display text-2xl font-bold text-white mt-1">
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-white mt-1">
               Weekday £15 Specials
             </h2>
           </div>
@@ -59,7 +58,7 @@ export const DealsPage: React.FC<DealsPageProps> = ({ onAddToOrder }) => {
           {WEEKDAY_SPECIALS.map((sp) => (
             <div
               key={sp.day}
-              className="cartoon-card overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#18181c] to-[#0e0e11]"
+              className="cartoon-card overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#18181c] to-[#0e0e11] h-full"
             >
               {sp.image && (
                 <div className="relative w-full h-32 overflow-hidden bg-black">
@@ -122,11 +121,11 @@ export const DealsPage: React.FC<DealsPageProps> = ({ onAddToOrder }) => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {boxDeals.map((box) => (
             <div
               key={box.id}
-              className="cartoon-card overflow-hidden flex flex-col justify-between group transition-all duration-200 hover:-translate-y-1"
+              className="cartoon-card overflow-hidden flex flex-col justify-between group transition-all duration-200 hover:-translate-y-1 h-full"
             >
               {/* Realistic Box Photo */}
               {box.image && (

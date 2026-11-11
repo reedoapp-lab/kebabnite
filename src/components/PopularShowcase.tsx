@@ -17,11 +17,11 @@ export const PopularShowcase: React.FC<PopularShowcaseProps> = ({
   const popularItems = MENU_ITEMS.filter((i) => popularIds.includes(i.id));
 
   return (
-    <section className="py-12 bg-[#0c0c0e] border-y border-red-900/30 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-8 sm:py-12 bg-[#0c0c0e] border-y border-red-900/30 relative">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 mb-6 sm:mb-8">
           <div>
             <div className="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider">
               <Sparkles className="w-4 h-4 text-red-500" />
@@ -33,7 +33,7 @@ export const PopularShowcase: React.FC<PopularShowcaseProps> = ({
           </div>
           <button
             onClick={() => onNavigate('menu')}
-            className="text-red-400 hover:text-white text-sm font-bold flex items-center gap-1 group self-start sm:self-auto transition-colors"
+            className="text-red-400 hover:text-white text-xs sm:text-sm font-bold flex items-center gap-1 group self-start sm:self-auto transition-colors"
           >
             <span>See complete menu (100+ items)</span>
             <span className="group-hover:translate-x-1 transition-transform">→</span>
@@ -41,7 +41,7 @@ export const PopularShowcase: React.FC<PopularShowcaseProps> = ({
         </div>
 
         {/* Popular Grid with Realistic Food Photos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {popularItems.map((item, idx) => (
             <motion.div
               key={item.id}
@@ -49,7 +49,7 @@ export const PopularShowcase: React.FC<PopularShowcaseProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="cartoon-card overflow-hidden flex flex-col justify-between group relative"
+              className="cartoon-card overflow-hidden flex flex-col justify-between group relative h-full"
             >
               {/* Realistic Food Photo */}
               {item.image && (

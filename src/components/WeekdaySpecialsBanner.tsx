@@ -12,30 +12,30 @@ export const WeekdaySpecialsBanner: React.FC<WeekdaySpecialsBannerProps> = ({ on
   const todayName = days[new Date().getDay()];
 
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="py-8 sm:py-12 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Title */}
-      <div className="text-center max-w-2xl mx-auto mb-8">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600/15 border border-red-500/40 text-red-400 text-xs font-bold mb-2">
+      <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/15 border border-red-500/40 text-red-400 text-xs font-bold mb-2">
           <Clock className="w-3.5 h-3.5" />
           <span>Available Monday to Thursday · 5:00 PM – 9:00 PM</span>
         </div>
-        <h2 className="font-display text-3xl font-bold text-white">
+        <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">
           Weekday £15 Specials
         </h2>
-        <p className="text-sm text-slate-300 mt-2">
+        <p className="text-xs sm:text-sm text-slate-300 mt-2">
           Massive portions, unbeatable value. Call <strong className="text-red-400">{SHOP_INFO.displayPhone}</strong> to claim tonight's deal.
         </p>
       </div>
 
       {/* 4 Cards Grid with Images */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {WEEKDAY_SPECIALS.map((deal) => {
           const isToday = deal.day === todayName;
 
           return (
             <div
               key={deal.day}
-              className={`cartoon-card overflow-hidden flex flex-col justify-between relative transition-all duration-300 ${
+              className={`cartoon-card overflow-hidden flex flex-col justify-between relative transition-all duration-300 h-full ${
                 isToday
                   ? 'border-2 border-red-500 bg-gradient-to-b from-[#181316] to-[#0d0d0f] shadow-[0_0_30px_rgba(220,38,38,0.3)] scale-[1.02]'
                   : 'border border-red-950/40'

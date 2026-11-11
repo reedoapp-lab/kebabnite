@@ -158,15 +158,15 @@ export const TodayLiveTicker: React.FC<TodayLiveTickerProps> = ({ onNavigate }) 
       <div className="max-w-7xl mx-auto flex items-stretch">
         
         {/* Static Left Badge for immediate context */}
-        <div className="shrink-0 z-10 flex items-center gap-2 bg-gradient-to-r from-red-700 to-red-600 px-3 sm:px-4 py-2 font-display font-black text-white text-[11px] sm:text-xs shadow-md tracking-wider">
+        <div className="shrink-0 z-10 flex items-center gap-1.5 bg-gradient-to-r from-red-700 to-red-600 px-2.5 sm:px-4 py-2 font-display font-black text-white text-[10px] sm:text-xs shadow-md tracking-wider">
           <span className="w-2 h-2 rounded-full bg-white live-pulse" />
-          <span className="hidden xs:inline">TODAY'S MENU</span>
-          <span className="xs:hidden">LIVE</span>
+          <span className="hidden sm:inline">TODAY'S MENU</span>
+          <span className="sm:hidden">LIVE</span>
         </div>
 
         {/* Continuous Smooth Horizontal Marquee Ticker */}
-        <div className="flex-1 overflow-hidden py-2 relative flex items-center cursor-pointer" onClick={() => onNavigate('todays-menu')}>
-          <div className="animate-ticker-marquee flex items-center gap-8 pl-4 whitespace-nowrap">
+        <div className="flex-1 overflow-hidden py-2 relative flex items-center cursor-pointer min-w-0" onClick={() => onNavigate('todays-menu')}>
+          <div className="animate-ticker-marquee flex items-center gap-6 sm:gap-8 pl-3 sm:pl-4 whitespace-nowrap">
             {/* First Set */}
             {tickerItems.map((item) => (
               <div
@@ -177,7 +177,7 @@ export const TodayLiveTicker: React.FC<TodayLiveTickerProps> = ({ onNavigate }) 
                 <span className={item.highlight ? 'font-bold text-white' : ''}>
                   {item.text}
                 </span>
-                <span className="text-red-600/50 ml-4 font-bold">✦</span>
+                <span className="text-red-600/50 ml-3 sm:ml-4 font-bold">✦</span>
               </div>
             ))}
 
@@ -191,22 +191,23 @@ export const TodayLiveTicker: React.FC<TodayLiveTickerProps> = ({ onNavigate }) 
                 <span className={item.highlight ? 'font-bold text-white' : ''}>
                   {item.text}
                 </span>
-                <span className="text-red-600/50 ml-4 font-bold">✦</span>
+                <span className="text-red-600/50 ml-3 sm:ml-4 font-bold">✦</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Right CTA Button: Direct Jump to Today's Menu */}
-        <div className="shrink-0 z-10 flex items-center bg-[#111115] pl-2 pr-3">
+        <div className="shrink-0 z-10 flex items-center bg-[#111115] pl-1.5 pr-2 sm:px-3">
           <button
             onClick={() => {
               onNavigate('todays-menu');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-600/20 hover:bg-red-600 border border-red-500/50 text-white font-bold text-[10px] sm:text-xs transition-all hover:scale-105 whitespace-nowrap"
+            className="flex items-center gap-1 px-2 sm:px-2.5 py-1 rounded-lg bg-red-600/20 hover:bg-red-600 border border-red-500/50 text-white font-bold text-[10px] sm:text-xs transition-all hover:scale-105 whitespace-nowrap"
           >
-            <span>View Specials</span>
+            <span className="hidden sm:inline">View Specials</span>
+            <span className="sm:hidden">Specials</span>
             <ArrowRight className="w-3 h-3" />
           </button>
         </div>
