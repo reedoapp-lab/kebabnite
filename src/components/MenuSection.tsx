@@ -82,28 +82,43 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
       )}
 
       {/* Menu Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 mb-6 sm:mb-8">
-        <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/15 border border-red-500/30 text-red-400 text-xs 2xl:text-sm font-bold mb-2">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8 mb-6 sm:mb-10 relative">
+        <div className="flex-1 text-center sm:text-left">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600/15 border border-red-500/30 text-red-400 text-xs 2xl:text-sm font-bold mb-2.5">
             <span>🥙 Carrickfergus Takeaway Menu</span>
           </div>
-          <h1 className="font-display text-2xl sm:text-4xl 2xl:text-5xl font-bold text-white tracking-tight">
+          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-white tracking-tight">
             Our Complete Menu
           </h1>
-          <p className="text-xs sm:text-sm 2xl:text-base text-slate-300 mt-1 max-w-2xl">
+          <p className="text-xs sm:text-sm lg:text-base 2xl:text-lg text-slate-300 mt-2 max-w-2xl mx-auto sm:mx-0 leading-relaxed">
             Pick your favourites, customize items, and order online for fast local delivery or collection.
           </p>
+
+          {onOpenCart && (
+            <div className="mt-4">
+              <button
+                onClick={onOpenCart}
+                className="cartoon-btn-primary px-5 py-2.5 2xl:px-6 2xl:py-3 rounded-2xl text-white text-xs 2xl:text-sm font-bold inline-flex items-center justify-center gap-2 shadow-md"
+              >
+                <span>View Food Cart</span>
+              </button>
+            </div>
+          )}
         </div>
 
-        {/* View Food Cart Button */}
-        {onOpenCart && (
-          <button
-            onClick={onOpenCart}
-            className="cartoon-btn-primary px-5 py-2.5 2xl:px-6 2xl:py-3 rounded-2xl text-white text-xs 2xl:text-sm font-bold flex items-center justify-center gap-2 self-stretch sm:self-auto shadow-md"
-          >
-            <span>View Food Cart</span>
-          </button>
-        )}
+        {/* Right Side Mascot: Transparent PNG integrated directly onto the black background */}
+        <div className="relative flex items-center justify-center sm:justify-end shrink-0">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 m-auto w-36 h-36 sm:w-44 sm:h-44 lg:w-52 lg:h-52 rounded-full bg-gradient-to-tr from-red-600/20 via-amber-500/10 to-transparent blur-3xl pointer-events-none"
+          />
+          <img
+            src="/assets/aistudio/Thoughtful_Owl_Chef_with_Kebab_Nite_Menu_2e311580.png"
+            alt="Thoughtful Kebab Nite Owl Chef reading the Kebab Nite Menu"
+            className="relative z-10 w-36 sm:w-44 md:w-52 lg:w-60 2xl:w-72 h-auto object-contain select-none filter drop-shadow-[0_18px_36px_rgba(220,38,38,0.22)] transition-transform duration-500 ease-out hover:scale-[1.03]"
+            referrerPolicy="no-referrer"
+          />
+        </div>
       </div>
 
       {/* Search & Dietary Filters Bar */}
