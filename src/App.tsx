@@ -89,38 +89,69 @@ export default function App() {
           <>
             <HeroSection onNavigate={setCurrentPage} />
 
-            {/* Quick Story & Quality Banner (Oven roasted, no charcoal/stone) */}
-            <section className="fluid-4k-container px-3 sm:px-6 lg:px-8 py-5 sm:py-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 2xl:gap-6">
-                <div className="cartoon-card p-4 sm:p-5 2xl:p-6 flex items-center gap-3.5 rounded-2xl sm:rounded-3xl">
-                  <div className="w-11 h-11 2xl:w-12 2xl:h-12 rounded-2xl bg-red-600/20 text-red-500 flex items-center justify-center font-bold text-xl shrink-0 shadow-inner">
-                    🔥
+            {/* Quick Story, Mascot & Quality Features (Vertical layout paired with transparent Mascot on black background) */}
+            <section className="fluid-4k-container px-3 sm:px-6 lg:px-8 py-6 sm:py-10 2xl:py-14">
+              <div className="grid grid-cols-1 md:grid-cols-12 items-center gap-6 sm:gap-8 lg:gap-12 2xl:gap-16">
+                
+                {/* Mascot Showcase: Transparent PNG integrated directly onto the black background */}
+                <div className="md:col-span-5 flex items-center justify-center relative">
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 m-auto w-56 h-56 sm:w-72 sm:h-72 2xl:w-96 2xl:h-96 rounded-full bg-gradient-to-tr from-red-600/20 via-amber-500/10 to-transparent blur-3xl pointer-events-none"
+                  />
+                  <img
+                    src="/assets/aistudio/Cheerful_Owl_Presenting_Kebab_Box_1a989572.png"
+                    alt="Kebab Nite Owl Mascot presenting a fresh Kebab Nite box"
+                    className="relative z-10 w-full max-w-[240px] sm:max-w-[300px] lg:max-w-[360px] 2xl:max-w-[440px] h-auto object-contain select-none filter drop-shadow-[0_20px_40px_rgba(220,38,38,0.22)] transition-transform duration-500 ease-out hover:scale-[1.03]"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+
+                {/* Three Signature Features Stacked Vertically */}
+                <div className="md:col-span-7 flex flex-col justify-center gap-3.5 sm:gap-4 2xl:gap-5">
+                  <div className="cartoon-card p-4 sm:p-5 lg:p-6 2xl:p-7 flex items-center gap-4 sm:gap-5 rounded-2xl sm:rounded-3xl">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 2xl:w-16 2xl:h-16 rounded-2xl bg-red-600/20 border border-red-500/25 text-red-500 flex items-center justify-center font-bold text-2xl 2xl:text-3xl shrink-0 shadow-inner">
+                      🔥
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="font-display font-bold text-base sm:text-lg 2xl:text-xl text-white">
+                        Fresh Oven Roasted Flavour
+                      </h4>
+                      <p className="text-xs sm:text-sm 2xl:text-base text-slate-300 mt-0.5 leading-relaxed">
+                        Succulent seasoned meats roasted to juicy perfection in our ovens.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-display font-bold text-sm 2xl:text-base text-white">Fresh Oven Roasted Flavour</h4>
-                    <p className="text-xs 2xl:text-sm text-slate-300">Succulent seasoned meats roasted to juicy perfection in our ovens.</p>
+
+                  <div className="cartoon-card p-4 sm:p-5 lg:p-6 2xl:p-7 flex items-center gap-4 sm:gap-5 rounded-2xl sm:rounded-3xl">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 2xl:w-16 2xl:h-16 rounded-2xl bg-amber-500/20 border border-amber-400/25 text-amber-400 flex items-center justify-center font-bold text-2xl 2xl:text-3xl shrink-0 shadow-inner">
+                      🥖
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="font-display font-bold text-base sm:text-lg 2xl:text-xl text-white">
+                        Signature Naan Hogies
+                      </h4>
+                      <p className="text-xs sm:text-sm 2xl:text-base text-slate-300 mt-0.5 leading-relaxed">
+                        Rolled fresh with chips, melted cheese & house sauce.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="cartoon-card p-4 sm:p-5 lg:p-6 2xl:p-7 flex items-center gap-4 sm:gap-5 rounded-2xl sm:rounded-3xl">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 2xl:w-16 2xl:h-16 rounded-2xl bg-red-600/20 border border-red-500/25 text-red-500 flex items-center justify-center font-bold text-2xl 2xl:text-3xl shrink-0 shadow-inner">
+                      ⚡
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="font-display font-bold text-base sm:text-lg 2xl:text-xl text-white">
+                        Fast Online Ordering
+                      </h4>
+                      <p className="text-xs sm:text-sm 2xl:text-base text-slate-300 mt-0.5 leading-relaxed">
+                        Order in Food Cart with live order tracking & easy checkout.
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="cartoon-card p-4 sm:p-5 2xl:p-6 flex items-center gap-3.5 rounded-2xl sm:rounded-3xl">
-                  <div className="w-11 h-11 2xl:w-12 2xl:h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xl shrink-0 shadow-inner">
-                    🥖
-                  </div>
-                  <div>
-                    <h4 className="font-display font-bold text-sm 2xl:text-base text-white">Signature Naan Hogies</h4>
-                    <p className="text-xs 2xl:text-sm text-slate-300">Rolled fresh with chips, melted cheese & house sauce.</p>
-                  </div>
-                </div>
-
-                <div className="cartoon-card p-4 sm:p-5 2xl:p-6 flex items-center gap-3.5 sm:col-span-2 lg:col-span-1 rounded-2xl sm:rounded-3xl">
-                  <div className="w-11 h-11 2xl:w-12 2xl:h-12 rounded-2xl bg-red-600/20 text-red-500 flex items-center justify-center font-bold text-xl shrink-0 shadow-inner">
-                    ⚡
-                  </div>
-                  <div>
-                    <h4 className="font-display font-bold text-sm 2xl:text-base text-white">Fast Online Ordering</h4>
-                    <p className="text-xs 2xl:text-sm text-slate-300">Order in Food Cart with live order tracking & easy checkout.</p>
-                  </div>
-                </div>
               </div>
             </section>
 
