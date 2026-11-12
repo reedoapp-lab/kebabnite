@@ -12,11 +12,15 @@
 
   html {
     scroll-behavior: smooth;
+    overscroll-behavior-y: contain;
     font-family: var(--font-jakarta);
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
     -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
@@ -28,6 +32,36 @@
     margin: 0;
     padding: 0;
     position: relative;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* High-end Luxury Slim Scrollbar */
+  ::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #08080a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #450a0a 0%, #2b080c 100%);
+    border-radius: 9999px;
+    border: 2px solid #08080a;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%);
+    box-shadow: 0 0 16px rgba(220, 38, 38, 0.6);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #450a0a #08080a;
   }
 }
 
@@ -39,71 +73,121 @@
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
-/* Custom Cartoonish & Vibrant UI Effects (Black, Red, White + Amber Accent) */
+/* Fluid 4K & Ultrawide Responsive Container System */
+.fluid-4k-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem; /* 1280px desktop */
+}
+
+@media (min-width: 1536px) {
+  .fluid-4k-container {
+    max-width: 96rem; /* 1536px 2K QHD */
+  }
+}
+
+@media (min-width: 1920px) {
+  .fluid-4k-container {
+    max-width: 116rem; /* 1856px Full HD/2K Wide */
+  }
+}
+
+@media (min-width: 2560px) {
+  .fluid-4k-container {
+    max-width: 142rem; /* 2272px 1440p Ultrawide / 3K */
+  }
+}
+
+@media (min-width: 3840px) {
+  .fluid-4k-container {
+    max-width: 180rem; /* 2880px Native 4K UHD */
+  }
+}
+
+/* Soft Edges & Velvet Surface Geometry (Black, Crimson Red, White + Warm Amber) */
 .cartoon-card {
-  background: linear-gradient(180deg, #131316 0%, #0a0a0c 100%);
-  border: 2px solid rgba(220, 38, 38, 0.2);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 0 15px rgba(220, 38, 38, 0.08);
-  border-radius: 1.25rem;
+  background: linear-gradient(180deg, #141318 0%, #0a0a0d 100%);
+  border: 1px solid rgba(220, 38, 38, 0.18);
+  box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.8), 0 0 24px -4px rgba(220, 38, 38, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border-radius: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cartoon-card:hover {
-  border-color: rgba(220, 38, 38, 0.5);
-  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.8), 0 0 25px rgba(220, 38, 38, 0.2);
+  border-color: rgba(220, 38, 38, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 22px 50px -12px rgba(0, 0, 0, 0.9), 0 0 35px 2px rgba(220, 38, 38, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Soft Edge Glass Surfaces */
+.soft-glass {
+  background: rgba(14, 13, 18, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
 }
 
 .cartoon-btn-primary {
   background: linear-gradient(180deg, #e11d48 0%, #be123c 100%);
   color: #ffffff;
-  border-bottom: 4px solid #881337;
-  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.35);
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  border-bottom: 3px solid #881337;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px -4px rgba(225, 29, 72, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cartoon-btn-primary:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
+  filter: brightness(1.08);
+  transform: translateY(-1.5px);
+  box-shadow: 0 12px 28px -4px rgba(225, 29, 72, 0.55), 0 0 20px rgba(225, 29, 72, 0.25);
 }
 
 .cartoon-btn-primary:active {
-  transform: translateY(2px);
+  transform: translateY(1.5px) scale(0.99);
   border-bottom-width: 2px;
-  box-shadow: 0 2px 10px rgba(225, 29, 72, 0.25);
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.3);
 }
 
 .cartoon-btn-call {
   background: linear-gradient(180deg, #dc2626 0%, #b91c1c 100%);
   color: #ffffff;
-  border-bottom: 4px solid #7f1d1d;
-  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  border-bottom: 3px solid #7f1d1d;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px -4px rgba(220, 38, 38, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cartoon-btn-call:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
+  filter: brightness(1.08);
+  transform: translateY(-1.5px);
+  box-shadow: 0 12px 28px -4px rgba(220, 38, 38, 0.55), 0 0 20px rgba(220, 38, 38, 0.3);
 }
 
 .cartoon-btn-call:active {
-  transform: translateY(2px);
+  transform: translateY(1.5px) scale(0.99);
   border-bottom-width: 2px;
 }
 
 .cartoon-btn-amber {
   background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
   color: #000000;
-  border-bottom: 4px solid #92400e;
-  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  border-bottom: 3px solid #92400e;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px -4px rgba(245, 158, 11, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cartoon-btn-amber:hover {
-  filter: brightness(1.08);
-  transform: translateY(-1px);
+  filter: brightness(1.06);
+  transform: translateY(-1.5px);
+  box-shadow: 0 12px 28px -4px rgba(245, 158, 11, 0.5);
 }
 
 .cartoon-btn-amber:active {
-  transform: translateY(2px);
+  transform: translateY(1.5px) scale(0.99);
   border-bottom-width: 2px;
 }
 
@@ -118,11 +202,27 @@
 }
 
 .glow-red {
-  filter: drop-shadow(0 0 25px rgba(220, 38, 38, 0.5));
+  filter: drop-shadow(0 0 30px rgba(220, 38, 38, 0.55));
 }
 
 .glow-amber {
-  filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.45));
+  filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.45));
+}
+
+/* Page Transition Smooth Fade-in */
+@keyframes softFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-soft-fade {
+  animation: softFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Continuous Live Ticker Animations */

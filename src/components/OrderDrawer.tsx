@@ -45,27 +45,27 @@ export const OrderDrawer: React.FC<OrderDrawerProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden bg-black/80 backdrop-blur-sm flex justify-end transition-opacity">
-      <div className="w-full max-w-md bg-[#0e0e11] border-l border-red-600/30 flex flex-col h-full shadow-2xl">
+    <div className="fixed inset-0 z-50 overflow-hidden bg-black/80 backdrop-blur-md flex justify-end transition-opacity">
+      <div className="w-full max-w-md 2xl:max-w-lg bg-[#0e0e11] border-l border-red-600/30 flex flex-col h-full shadow-2xl">
         
         {/* Drawer Header */}
-        <div className="p-4 border-b border-neutral-800 bg-[#141418] flex items-center justify-between">
+        <div className="p-4 sm:p-5 border-b border-neutral-800 bg-[#141418] flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-red-600/20 border border-red-500/40 flex items-center justify-center text-red-500 font-bold">
+            <div className="w-10 h-10 rounded-2xl bg-red-600/20 border border-red-500/40 flex items-center justify-center text-red-500 font-bold text-lg">
               🛒
             </div>
             <div>
-              <h2 className="font-display font-bold text-lg text-white leading-tight">
+              <h2 className="font-display font-bold text-lg 2xl:text-xl text-white leading-tight">
                 Your Food Cart
               </h2>
-              <p className="text-xs text-amber-400">
+              <p className="text-xs 2xl:text-sm text-amber-400">
                 Online order for fast delivery or collection
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-slate-300 hover:text-white rounded-lg hover:bg-neutral-800 transition-colors"
+            className="p-2 text-slate-300 hover:text-white rounded-xl hover:bg-neutral-800 transition-colors"
             aria-label="Close Food Cart"
           >
             <X className="w-5 h-5" />
@@ -187,7 +187,7 @@ export const OrderDrawer: React.FC<OrderDrawerProps> = ({
                 onClose();
                 onOpenCheckout();
               }}
-              className="cartoon-btn-primary w-full py-3.5 rounded-xl flex items-center justify-center gap-2.5 text-white font-display font-bold text-base shadow-xl active:scale-98 transition-all"
+              className="cartoon-btn-primary w-full py-3.5 rounded-2xl flex items-center justify-center gap-2.5 text-white font-display font-bold text-base 2xl:text-lg shadow-xl active:scale-95 transition-all"
             >
               <CreditCard className="w-5 h-5 text-amber-300" />
               <span>Proceed to Online Payment</span>
@@ -195,7 +195,7 @@ export const OrderDrawer: React.FC<OrderDrawerProps> = ({
 
             {/* Subtle assistance phone text */}
             <div className="text-center">
-              <span className="text-[11px] text-slate-400">
+              <span className="text-[11px] 2xl:text-xs text-slate-400">
                 Counter queries? <a href={`tel:${SHOP_INFO.phone}`} className="text-red-400 font-bold hover:underline">Call {SHOP_INFO.displayPhone}</a>
               </span>
             </div>
@@ -203,7 +203,7 @@ export const OrderDrawer: React.FC<OrderDrawerProps> = ({
             {/* Copy order button */}
             <button
               onClick={handleCopyOrder}
-              className="w-full py-2 px-3 rounded-lg bg-neutral-950 hover:bg-neutral-900 border border-neutral-800 text-slate-300 hover:text-white text-xs font-medium flex items-center justify-center gap-1.5 transition-colors"
+              className="w-full py-2.5 px-3 rounded-2xl bg-neutral-950 hover:bg-neutral-900 border border-neutral-800 text-slate-300 hover:text-white text-xs 2xl:text-sm font-medium flex items-center justify-center gap-1.5 transition-colors active:scale-95"
             >
               {copied ? (
                 <>

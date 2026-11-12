@@ -9,7 +9,7 @@ interface PrivacyPolicyPageProps {
 
 export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate }) => {
   return (
-    <div className="py-6 sm:py-12 px-3 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-8 sm:space-y-10">
+    <div className="py-6 sm:py-12 px-3 sm:px-6 lg:px-8 fluid-4k-container max-w-5xl 2xl:max-w-6xl mx-auto space-y-8 sm:space-y-10 animate-soft-fade">
       
       {/* Back Button */}
       <button
@@ -17,7 +17,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
           onNavigate('home');
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
-        className="inline-flex items-center gap-2 text-xs font-bold text-red-500 hover:text-white transition-colors"
+        className="inline-flex items-center gap-2 text-xs 2xl:text-sm font-bold text-red-500 hover:text-white transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Back to Home</span>

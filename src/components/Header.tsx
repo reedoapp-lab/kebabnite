@@ -28,16 +28,16 @@ export const Header: React.FC<HeaderProps> = ({
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#09090b]/95 backdrop-blur-md border-b border-red-600/30 shadow-2xl">
+    <header className="sticky top-0 z-40 w-full bg-[#08080a]/90 backdrop-blur-xl border-b border-red-600/20 shadow-2xl transition-all">
       {/* Top Banner Notice: Black & Red */}
-      <div className="bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white text-[11px] sm:text-xs py-1.5 px-3 sm:px-4 text-center font-bold tracking-wide">
+      <div className="bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white text-[11px] sm:text-xs 2xl:text-sm py-1.5 px-3 sm:px-4 text-center font-bold tracking-wide">
         <span className="block truncate">
           🔥 Serving Carrickfergus · Open Today From 4:00 PM · Online Ordering Available
         </span>
       </div>
 
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-2 sm:gap-4 h-16 sm:h-20 lg:h-22 py-1 sm:py-2">
+      <div className="fluid-4k-container px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-3 sm:gap-6 h-16 sm:h-20 lg:h-22 2xl:h-24 py-1 sm:py-2">
           
           {/* Zone 1: Brand Zone */}
           <button
@@ -45,30 +45,30 @@ export const Header: React.FC<HeaderProps> = ({
               setCurrentPage('home');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="flex items-center gap-2 sm:gap-3 text-left focus:outline-none group shrink-0 min-w-0"
+            className="flex items-center gap-2.5 sm:gap-3.5 text-left focus:outline-none group shrink-0 min-w-0"
           >
             {/* Responsive Logo Container */}
-            <div className="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <div className="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 2xl:w-22 2xl:h-22 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
               <img
                 src="/assets/aistudio/kebab_nite_logo_nobg.png"
                 alt="Kebab Nite Logo"
-                className="w-full h-full object-contain filter drop-shadow-[0_2px_10px_rgba(220,38,38,0.6)]"
+                className="w-full h-full object-contain filter drop-shadow-[0_4px_14px_rgba(220,38,38,0.55)]"
                 referrerPolicy="no-referrer"
               />
             </div>
             
             <div className="flex flex-col justify-center min-w-0">
-              <span className="font-display text-lg sm:text-2xl lg:text-3xl font-black tracking-tight text-white group-hover:text-red-400 transition-colors leading-tight truncate">
+              <span className="font-display text-lg sm:text-2xl lg:text-3xl 2xl:text-4xl font-black tracking-tight text-white group-hover:text-red-400 transition-colors leading-tight truncate">
                 Kebab Nite
               </span>
-              <span className="text-[10px] sm:text-xs font-bold text-amber-400 tracking-wider truncate hidden sm:block">
+              <span className="text-[10px] sm:text-xs 2xl:text-sm font-bold text-amber-400 tracking-wider truncate hidden sm:block">
                 18A High Street, Carrickfergus
               </span>
             </div>
           </button>
 
           {/* Zone 2: Navigation Links (Desktop) */}
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-semibold">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-8 2xl:gap-10 text-sm 2xl:text-base font-semibold">
             {navLinks.map((link) => {
               const isActive = currentPage === link.id;
               return (
@@ -78,21 +78,21 @@ export const Header: React.FC<HeaderProps> = ({
                     setCurrentPage(link.id);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className={`relative py-1.5 transition-colors whitespace-nowrap shrink-0 text-sm flex items-center gap-1.5 ${
+                  className={`relative py-2 px-3 rounded-xl transition-all whitespace-nowrap shrink-0 flex items-center gap-1.5 ${
                     isActive
-                      ? 'text-red-500 font-bold'
-                      : 'text-slate-200 hover:text-white'
+                      ? 'text-white bg-red-600/20 font-bold border border-red-500/30 shadow-inner'
+                      : 'text-slate-300 hover:text-white hover:bg-neutral-900/60'
                   }`}
                 >
                   <span>{link.label}</span>
                   {link.isLive && (
-                    <span className="px-1.5 py-0.2 rounded-full bg-red-600/30 border border-red-500 text-[9px] font-black uppercase text-amber-300 flex items-center gap-1">
+                    <span className="px-1.5 py-0.5 rounded-full bg-red-600/30 border border-red-500 text-[9px] 2xl:text-[10px] font-black uppercase text-amber-300 flex items-center gap-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-red-500 live-pulse" />
                       LIVE
                     </span>
                   )}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 rounded-full" />
+                    <span className="absolute -bottom-1 left-3 right-3 h-0.5 bg-gradient-to-r from-red-500 via-amber-400 to-red-500 rounded-full" />
                   )}
                 </button>
               );
@@ -100,17 +100,17 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Zone 3: Primary Action & Food Cart */}
-          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-            {/* Food Cart button */}
+          <div className="flex items-center gap-2 sm:gap-3.5 shrink-0">
+            {/* Food Cart button with soft edges */}
             <button
               onClick={() => setIsDrawerOpen(true)}
-              className="relative flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-red-500/30 text-white text-xs font-bold transition-all shadow-sm"
+              className="relative flex items-center gap-2 p-2 sm:px-4 sm:py-2.5 rounded-2xl bg-neutral-900/90 hover:bg-neutral-800 border border-red-500/30 text-white text-xs 2xl:text-sm font-bold transition-all shadow-md active:scale-95"
               title="View my Food Cart"
             >
               <ShoppingBag className="w-4 h-4 text-amber-400" />
               <span className="hidden md:inline">Food Cart</span>
               {totalItems > 0 && (
-                <span className="px-1.5 py-0.2 text-[10px] font-black rounded-full bg-red-600 text-white">
+                <span className="px-2 py-0.5 text-[10px] 2xl:text-xs font-black rounded-full bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-sm">
                   {totalItems}
                 </span>
               )}
@@ -119,7 +119,7 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Header Order Online button (without phone number) */}
             <button
               onClick={() => setIsDrawerOpen(true)}
-              className="cartoon-btn-primary flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold tracking-wide shadow-md whitespace-nowrap active:scale-95 transition-transform"
+              className="cartoon-btn-primary flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-2xl text-xs sm:text-sm 2xl:text-base font-bold tracking-wide shadow-lg whitespace-nowrap active:scale-95 transition-transform"
             >
               <ShoppingBag className="w-4 h-4" />
               <span>Order Online</span>
@@ -128,7 +128,7 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Mobile / Tablet Menu Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-white hover:text-red-400 rounded-xl bg-neutral-900 border border-neutral-700"
+              className="lg:hidden p-2.5 text-white hover:text-red-400 rounded-2xl bg-neutral-900/90 border border-neutral-700"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <MenuIcon className="w-5 h-5 sm:w-6 sm:h-6" />}

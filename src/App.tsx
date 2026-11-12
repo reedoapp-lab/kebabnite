@@ -84,41 +84,41 @@ export default function App() {
       <TodayLiveTicker onNavigate={setCurrentPage} />
 
       {/* Main Content Area Based on Page */}
-      <main className="flex-1 pb-28 sm:pb-0 w-full overflow-x-hidden">
+      <main key={currentPage} className="flex-1 pb-28 sm:pb-0 w-full overflow-x-hidden animate-soft-fade">
         {currentPage === 'home' && (
           <>
             <HeroSection onNavigate={setCurrentPage} />
 
             {/* Quick Story & Quality Banner (Oven roasted, no charcoal/stone) */}
-            <section className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                <div className="cartoon-card p-4 sm:p-5 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-red-600/20 text-red-500 flex items-center justify-center font-bold text-xl shrink-0">
+            <section className="fluid-4k-container px-3 sm:px-6 lg:px-8 py-5 sm:py-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 2xl:gap-6">
+                <div className="cartoon-card p-4 sm:p-5 2xl:p-6 flex items-center gap-3.5 rounded-2xl sm:rounded-3xl">
+                  <div className="w-11 h-11 2xl:w-12 2xl:h-12 rounded-2xl bg-red-600/20 text-red-500 flex items-center justify-center font-bold text-xl shrink-0 shadow-inner">
                     🔥
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-sm text-white">Fresh Oven Roasted Flavour</h4>
-                    <p className="text-xs text-slate-300">Succulent seasoned meats roasted to juicy perfection in our ovens.</p>
+                    <h4 className="font-display font-bold text-sm 2xl:text-base text-white">Fresh Oven Roasted Flavour</h4>
+                    <p className="text-xs 2xl:text-sm text-slate-300">Succulent seasoned meats roasted to juicy perfection in our ovens.</p>
                   </div>
                 </div>
 
-                <div className="cartoon-card p-4 sm:p-5 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xl shrink-0">
+                <div className="cartoon-card p-4 sm:p-5 2xl:p-6 flex items-center gap-3.5 rounded-2xl sm:rounded-3xl">
+                  <div className="w-11 h-11 2xl:w-12 2xl:h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xl shrink-0 shadow-inner">
                     🥖
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-sm text-white">Signature Naan Hogies</h4>
-                    <p className="text-xs text-slate-300">Rolled fresh with chips, melted cheese & house sauce.</p>
+                    <h4 className="font-display font-bold text-sm 2xl:text-base text-white">Signature Naan Hogies</h4>
+                    <p className="text-xs 2xl:text-sm text-slate-300">Rolled fresh with chips, melted cheese & house sauce.</p>
                   </div>
                 </div>
 
-                <div className="cartoon-card p-4 sm:p-5 flex items-center gap-3 sm:col-span-2 lg:col-span-1">
-                  <div className="w-10 h-10 rounded-xl bg-red-600/20 text-red-500 flex items-center justify-center font-bold text-xl shrink-0">
+                <div className="cartoon-card p-4 sm:p-5 2xl:p-6 flex items-center gap-3.5 sm:col-span-2 lg:col-span-1 rounded-2xl sm:rounded-3xl">
+                  <div className="w-11 h-11 2xl:w-12 2xl:h-12 rounded-2xl bg-red-600/20 text-red-500 flex items-center justify-center font-bold text-xl shrink-0 shadow-inner">
                     ⚡
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-sm text-white">Fast Online Ordering</h4>
-                    <p className="text-xs text-slate-300">Order in Food Cart with live order tracking & easy checkout.</p>
+                    <h4 className="font-display font-bold text-sm 2xl:text-base text-white">Fast Online Ordering</h4>
+                    <p className="text-xs 2xl:text-sm text-slate-300">Order in Food Cart with live order tracking & easy checkout.</p>
                   </div>
                 </div>
               </div>
@@ -129,61 +129,61 @@ export default function App() {
             <WeekdaySpecialsBanner onAddToOrder={handleAddToOrder} />
 
             {/* Local Carrickfergus Testimonials / Community Love */}
-            <section className="py-8 sm:py-12 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-              <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
-                <span className="text-xs font-bold uppercase tracking-wider text-red-500 block mb-1">
+            <section className="py-8 sm:py-14 px-3 sm:px-6 lg:px-8 fluid-4k-container">
+              <div className="text-center max-w-2xl 2xl:max-w-3xl mx-auto mb-6 sm:mb-10">
+                <span className="text-xs 2xl:text-sm font-bold uppercase tracking-wider text-red-500 block mb-1.5">
                   Local Word on High Street
                 </span>
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
+                <h3 className="font-display text-2xl sm:text-3xl 2xl:text-4xl font-bold text-white">
                   Why Carrickfergus Loves Kebab Nite
                 </h3>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-                <div className="cartoon-card p-5 space-y-3 bg-gradient-to-b from-[#141418] to-[#0c0c0e] flex flex-col justify-between">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 2xl:gap-8">
+                <div className="cartoon-card p-6 2xl:p-8 space-y-4 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#141418] to-[#0c0c0e] flex flex-col justify-between">
                   <div>
-                    <div className="flex text-amber-400 mb-2">
+                    <div className="flex text-amber-400 mb-2.5">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-amber-400" />
                       ))}
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic">
+                    <p className="text-xs sm:text-sm 2xl:text-base text-slate-200 leading-relaxed italic">
                       "The Mixed Hogie is simply unmatched in Carrick. Naan was warm and soft, packed full of meat and the garlic mayo is addictive. Piping hot on delivery!"
                     </p>
                   </div>
-                  <div className="text-xs text-amber-400 font-bold pt-2">
+                  <div className="text-xs 2xl:text-sm text-amber-400 font-bold pt-2 border-t border-neutral-800/80">
                     — Ryan M., Carrickfergus
                   </div>
                 </div>
 
-                <div className="cartoon-card p-5 space-y-3 bg-gradient-to-b from-[#141418] to-[#0c0c0e] flex flex-col justify-between">
+                <div className="cartoon-card p-6 2xl:p-8 space-y-4 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#141418] to-[#0c0c0e] flex flex-col justify-between">
                   <div>
-                    <div className="flex text-amber-400 mb-2">
+                    <div className="flex text-amber-400 mb-2.5">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-amber-400" />
                       ))}
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic">
+                    <p className="text-xs sm:text-sm 2xl:text-base text-slate-200 leading-relaxed italic">
                       "The 10\" Munchy Box feeds two of us easily with leftovers. Chicken goujons are crispy and the doner is proper quality, not greasy."
                     </p>
                   </div>
-                  <div className="text-xs text-amber-400 font-bold pt-2">
+                  <div className="text-xs 2xl:text-sm text-amber-400 font-bold pt-2 border-t border-neutral-800/80">
                     — Claire D., Greenisland
                   </div>
                 </div>
 
-                <div className="cartoon-card p-5 space-y-3 bg-gradient-to-b from-[#141418] to-[#0c0c0e] sm:col-span-2 lg:col-span-1 flex flex-col justify-between">
+                <div className="cartoon-card p-6 2xl:p-8 space-y-4 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#141418] to-[#0c0c0e] sm:col-span-2 lg:col-span-1 flex flex-col justify-between">
                   <div>
-                    <div className="flex text-amber-400 mb-2">
+                    <div className="flex text-amber-400 mb-2.5">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-amber-400" />
                       ))}
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic">
+                    <p className="text-xs sm:text-sm 2xl:text-base text-slate-200 leading-relaxed italic">
                       "Called at 11:30 PM on a Friday night, order was ready for collection in under 15 minutes. Staff on the phone are always friendly and polite."
                     </p>
                   </div>
-                  <div className="text-xs text-amber-400 font-bold pt-2">
+                  <div className="text-xs 2xl:text-sm text-amber-400 font-bold pt-2 border-t border-neutral-800/80">
                     — Mark S., Eden
                   </div>
                 </div>
@@ -191,16 +191,16 @@ export default function App() {
             </section>
 
             {/* Quick Order Online & Call Banner (Black & Red theme) */}
-            <section className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
-              <div className="cartoon-card p-5 sm:p-8 lg:p-10 bg-gradient-to-r from-[#170e12] via-[#220d14] to-[#170e12] border border-red-600/40 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-6">
+            <section className="fluid-4k-container px-3 sm:px-6 lg:px-8 py-6 sm:py-10 2xl:py-14">
+              <div className="cartoon-card p-6 sm:p-8 lg:p-10 2xl:p-12 rounded-3xl bg-gradient-to-r from-[#170e12] via-[#220d14] to-[#170e12] border border-red-600/35 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-6 shadow-2xl">
                 <div className="space-y-2 text-center md:text-left">
-                  <span className="text-xs font-black uppercase tracking-wider text-red-500">
+                  <span className="text-xs 2xl:text-sm font-black uppercase tracking-wider text-red-500">
                     Ready to eat?
                   </span>
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
+                  <h3 className="font-display text-2xl sm:text-3xl 2xl:text-4xl font-bold text-white">
                     Order Online for Collection or Delivery
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 max-w-lg">
+                  <p className="text-xs sm:text-sm 2xl:text-base text-slate-300 max-w-lg 2xl:max-w-2xl">
                     18A High street, Carrickfergus · Order directly with your Food Cart or ring <strong className="text-red-400">{SHOP_INFO.displayPhone}</strong>.
                   </p>
                 </div>
@@ -211,14 +211,14 @@ export default function App() {
                       setCurrentPage('menu');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="cartoon-btn-primary w-full sm:w-auto px-6 py-3.5 rounded-2xl text-white font-display text-sm font-bold shadow-xl whitespace-nowrap text-center"
+                    className="cartoon-btn-primary w-full sm:w-auto px-7 py-3.5 2xl:px-8 2xl:py-4 rounded-2xl text-white font-display text-sm 2xl:text-base font-bold shadow-xl whitespace-nowrap text-center"
                   >
                     Order Online Now
                   </button>
 
                   <a
                     href={`tel:${SHOP_INFO.phone}`}
-                    className="w-full sm:w-auto px-5 py-3.5 rounded-2xl bg-neutral-900 border border-neutral-700 hover:border-red-500 text-slate-200 font-display text-xs sm:text-sm font-bold shadow-md whitespace-nowrap text-center flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-5 py-3.5 2xl:px-6 2xl:py-4 rounded-2xl bg-neutral-900/90 border border-neutral-700/80 hover:border-red-500/60 text-slate-200 font-display text-xs sm:text-sm 2xl:text-base font-bold shadow-md whitespace-nowrap text-center flex items-center justify-center gap-2 transition-all hover:bg-neutral-800"
                   >
                     <Phone className="w-4 h-4 text-red-500" />
                     <span>Call {SHOP_INFO.displayPhone}</span>

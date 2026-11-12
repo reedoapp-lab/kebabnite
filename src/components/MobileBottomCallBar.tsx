@@ -23,7 +23,7 @@ export const MobileBottomCallBar: React.FC<MobileBottomCallBarProps> = ({
         {/* Food Cart Button */}
         <button
           onClick={() => setIsDrawerOpen(true)}
-          className="relative flex flex-col items-center justify-center h-12 px-3 rounded-xl bg-neutral-900 border border-red-500/30 text-white font-semibold text-[11px] shrink-0 active:scale-95 transition-transform"
+          className="relative flex flex-col items-center justify-center h-12 px-3 rounded-2xl bg-neutral-900 border border-red-500/30 text-white font-semibold text-[11px] shrink-0 active:scale-95 transition-transform"
           aria-label="View Food Cart"
         >
           <ShoppingBag className="w-4 h-4 text-amber-400" />
@@ -40,7 +40,7 @@ export const MobileBottomCallBar: React.FC<MobileBottomCallBarProps> = ({
           <>
             <button
               onClick={onOpenCheckout}
-              className="cartoon-btn-primary flex-1 h-12 rounded-xl flex items-center justify-between px-3 text-white font-display font-bold shadow-lg active:scale-95 transition-transform overflow-hidden"
+              className="cartoon-btn-primary flex-1 h-12 rounded-2xl flex items-center justify-between px-3 text-white font-display font-bold shadow-lg active:scale-95 transition-transform overflow-hidden"
             >
               <div className="flex items-center gap-1.5">
                 <CreditCard className="w-4 h-4 text-amber-300" />
@@ -64,7 +64,7 @@ export const MobileBottomCallBar: React.FC<MobileBottomCallBarProps> = ({
 
             <button
               onClick={() => setIsDrawerOpen(true)}
-              className="w-12 h-12 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 flex items-center justify-center text-white shrink-0 active:scale-95 transition-transform"
+              className="w-12 h-12 rounded-2xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 flex items-center justify-center text-white shrink-0 active:scale-95 transition-transform"
               title="View Cart"
               aria-label="Open Food Cart"
             >
@@ -75,10 +75,10 @@ export const MobileBottomCallBar: React.FC<MobileBottomCallBarProps> = ({
           /* When cart empty: prominent Order Online action button */
           <button
             onClick={() => setIsDrawerOpen(true)}
-            className="cartoon-btn-primary flex-1 h-12 rounded-xl flex items-center justify-between px-4 text-white font-display font-bold shadow-lg active:scale-95 transition-transform overflow-hidden"
+            className="cartoon-btn-primary flex-1 h-12 rounded-2xl flex items-center justify-between px-4 text-white font-display font-bold shadow-lg active:scale-95 transition-transform overflow-hidden"
           >
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center shadow-inner">
+              <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center shadow-inner">
                 <ShoppingBag className="w-4 h-4 text-white" />
               </div>
               <div className="flex flex-col text-left">
@@ -91,7 +91,7 @@ export const MobileBottomCallBar: React.FC<MobileBottomCallBarProps> = ({
               </div>
             </div>
 
-            <span className="text-xs font-bold bg-black/30 px-2.5 py-1 rounded-md text-amber-300">
+            <span className="text-xs font-bold bg-black/30 px-2.5 py-1 rounded-xl text-amber-300">
               Order Online
             </span>
           </button>

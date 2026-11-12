@@ -71,11 +71,11 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
   };
 
   return (
-    <section className="py-6 sm:py-12 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="py-6 sm:py-12 px-3 sm:px-6 lg:px-8 fluid-4k-container">
       
-      {/* Toast alert when item is added (Red, no green) */}
+      {/* Toast alert when item is added (Red, soft edges) */}
       {addedNotice && (
-        <div className="fixed top-20 right-4 z-50 bg-red-600 text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 text-xs font-bold animate-bounce border border-red-400">
+        <div className="fixed top-20 right-4 z-50 bg-red-600 text-white px-4 py-2.5 rounded-2xl shadow-2xl flex items-center gap-2 text-xs font-bold animate-bounce border border-red-400">
           <Check className="w-4 h-4 text-white" />
           <span>Added "{addedNotice}" to Food Cart!</span>
         </div>
@@ -84,13 +84,13 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
       {/* Menu Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 mb-6 sm:mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/15 border border-red-500/30 text-red-400 text-xs font-bold mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/15 border border-red-500/30 text-red-400 text-xs 2xl:text-sm font-bold mb-2">
             <span>🥙 Carrickfergus Takeaway Menu</span>
           </div>
-          <h1 className="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight">
+          <h1 className="font-display text-2xl sm:text-4xl 2xl:text-5xl font-bold text-white tracking-tight">
             Our Complete Menu
           </h1>
-          <p className="text-xs sm:text-sm text-slate-300 mt-1">
+          <p className="text-xs sm:text-sm 2xl:text-base text-slate-300 mt-1 max-w-2xl">
             Pick your favourites, customize items, and order online for fast local delivery or collection.
           </p>
         </div>
@@ -99,7 +99,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
         {onOpenCart && (
           <button
             onClick={onOpenCart}
-            className="cartoon-btn-primary px-4 py-2.5 rounded-xl text-white text-xs font-bold flex items-center justify-center gap-2 self-stretch sm:self-auto shadow-md"
+            className="cartoon-btn-primary px-5 py-2.5 2xl:px-6 2xl:py-3 rounded-2xl text-white text-xs 2xl:text-sm font-bold flex items-center justify-center gap-2 self-stretch sm:self-auto shadow-md"
           >
             <span>View Food Cart</span>
           </button>
@@ -107,9 +107,9 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
       </div>
 
       {/* Search & Dietary Filters Bar */}
-      <div className="mb-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 bg-[#111114] p-2.5 sm:p-3 rounded-2xl border border-red-900/30">
+      <div className="mb-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 bg-[#111114] p-3 2xl:p-4 rounded-3xl border border-red-900/30 shadow-lg">
         
-        {/* Search input */}
+        {/* Search input with soft edges */}
         <div className="relative flex-1">
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
@@ -117,7 +117,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search kebabs, hogies, pizzas, burgers, chips, dips..."
-            className="w-full pl-10 pr-4 py-2 rounded-xl bg-neutral-900 border border-neutral-700 text-white placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-red-500 transition-colors"
+            className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-neutral-900/90 border border-neutral-700/80 text-white placeholder-slate-400 text-xs sm:text-sm 2xl:text-base focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all"
           />
           {searchQuery && (
             <button
@@ -129,13 +129,13 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
           )}
         </div>
 
-        {/* Dietary Toggles (No green) */}
+        {/* Dietary Toggles */}
         <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={() => setFilterSpicyOnly(!filterSpicyOnly)}
-            className={`flex-1 sm:flex-none px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all ${
+            className={`flex-1 sm:flex-none px-3.5 py-2.5 rounded-2xl text-xs 2xl:text-sm font-bold flex items-center justify-center gap-1.5 transition-all ${
               filterSpicyOnly
-                ? 'bg-red-600 text-white border border-red-400'
+                ? 'bg-red-600 text-white border border-red-400 shadow-md'
                 : 'bg-neutral-900 text-slate-300 border border-neutral-700 hover:border-red-400/50'
             }`}
           >
@@ -145,9 +145,9 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
 
           <button
             onClick={() => setFilterVegOnly(!filterVegOnly)}
-            className={`flex-1 sm:flex-none px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all ${
+            className={`flex-1 sm:flex-none px-3.5 py-2.5 rounded-2xl text-xs 2xl:text-sm font-bold flex items-center justify-center gap-1.5 transition-all ${
               filterVegOnly
-                ? 'bg-amber-500 text-black border border-amber-400'
+                ? 'bg-amber-500 text-black border border-amber-400 shadow-md'
                 : 'bg-neutral-900 text-slate-300 border border-neutral-700 hover:border-amber-400/50'
             }`}
           >
@@ -157,7 +157,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
         </div>
       </div>
 
-      {/* Category Tabs (Segmented Buttons) - smooth horizontal swiping on mobile */}
+      {/* Category Tabs - smooth horizontal swiping */}
       <div className="mb-6 overflow-x-auto pb-2 scrollbar-none -mx-3 px-3 sm:mx-0 sm:px-0">
         <div className="flex items-center gap-2 min-w-max">
           {CATEGORIES.map((cat) => {
@@ -166,7 +166,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0 flex items-center gap-1.5 ${
+                className={`px-4 py-2.5 rounded-2xl text-xs 2xl:text-sm font-bold transition-all whitespace-nowrap shrink-0 flex items-center gap-1.5 ${
                   isActive
                     ? 'bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg scale-105'
                     : 'bg-neutral-900/80 text-slate-300 border border-neutral-800 hover:bg-neutral-800 hover:text-white'
@@ -181,7 +181,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
 
       {/* Active Category Description Notice */}
       {selectedCategory !== 'all' && (
-        <div className="mb-6 p-3 rounded-xl bg-neutral-900/60 border border-red-950/50 text-xs text-amber-300 flex items-center justify-between">
+        <div className="mb-6 p-3.5 rounded-2xl bg-neutral-900/60 border border-red-950/50 text-xs 2xl:text-sm text-amber-300 flex items-center justify-between">
           <span>{CATEGORIES.find((c) => c.id === selectedCategory)?.description}</span>
           <button
             onClick={() => setSelectedCategory('all')}
@@ -192,9 +192,9 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
         </div>
       )}
 
-      {/* Items Grid with Realistic Food Photos */}
+      {/* Items Grid with 4K Scaling & Soft Edges */}
       {filteredItems.length === 0 ? (
-        <div className="text-center py-16 cartoon-card p-8">
+        <div className="text-center py-16 cartoon-card p-8 rounded-3xl">
           <p className="text-3xl mb-2">🔍</p>
           <h3 className="font-display text-lg font-bold text-white">No items found</h3>
           <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">
@@ -213,7 +213,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 4xl:grid-cols-6 gap-4 sm:gap-5 2xl:gap-6">
           {filteredItems.map((item) => {
             const currentVariant = selectedVariants[item.id] || (item.variants ? item.variants[0] : null);
             const displayPrice = currentVariant ? currentVariant.price : item.price;
@@ -221,41 +221,41 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
             return (
               <div
                 key={item.id}
-                className="cartoon-card overflow-hidden flex flex-col justify-between group transition-all duration-200 hover:-translate-y-0.5 h-full"
+                className="cartoon-card overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1 h-full rounded-3xl"
               >
                 {/* Realistic Menu Item Photo */}
                 {item.image && (
-                  <div className="relative w-full h-44 overflow-hidden bg-black border-b border-red-900/30">
+                  <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-black border-b border-red-900/30">
                     <img
                       src={item.image}
                       alt={item.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#131316] via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#141318] via-transparent to-transparent pointer-events-none" />
                     
                     {/* Top Badges */}
                     <div className="absolute top-2.5 left-2.5 flex flex-wrap gap-1.5">
                       {item.badge && (
-                        <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-md bg-red-600 text-white shadow">
+                        <span className="text-[10px] 2xl:text-xs font-black uppercase px-2.5 py-0.5 rounded-lg bg-red-600 text-white shadow">
                           {item.badge}
                         </span>
                       )}
                       {item.spicy && (
-                        <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-amber-500 text-black shadow">
+                        <span className="text-[10px] 2xl:text-xs font-black uppercase px-2 py-0.5 rounded-lg bg-amber-500 text-black shadow">
                           Spicy
                         </span>
                       )}
                       {item.vegetarian && (
-                        <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-neutral-900 text-white border border-neutral-600 shadow">
+                        <span className="text-[10px] 2xl:text-xs font-black uppercase px-2 py-0.5 rounded-lg bg-neutral-900 text-white border border-neutral-600 shadow">
                           Veg
                         </span>
                       )}
                     </div>
 
                     {/* Price tag over photo */}
-                    <div className="absolute bottom-2.5 right-2.5 bg-black/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-red-500/40">
-                      <span className="font-mono text-sm font-black text-amber-400">
+                    <div className="absolute bottom-2.5 right-2.5 bg-black/85 backdrop-blur-md px-2.5 py-1 rounded-xl border border-red-500/40">
+                      <span className="font-mono text-sm 2xl:text-base font-black text-amber-400">
                         £{displayPrice.toFixed(2)}
                       </span>
                     </div>
@@ -332,7 +332,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                   <div className="mt-4 pt-3 border-t border-neutral-800">
                     <button
                       onClick={() => handleAddItem(item)}
-                      className="cartoon-btn-primary w-full py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 tracking-wide shadow active:scale-95 transition-transform"
+                      className="cartoon-btn-primary w-full py-2.5 px-3 rounded-2xl text-xs 2xl:text-sm font-bold flex items-center justify-center gap-1.5 tracking-wide shadow-md active:scale-95 transition-transform"
                     >
                       <Plus className="w-3.5 h-3.5" />
                       <span>+ Add to Food Cart</span>
@@ -348,17 +348,17 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
       )}
 
       {/* Bottom Takeaway Info */}
-      <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#181014] via-[#200e12] to-[#181014] border border-red-600/30 text-center space-y-3">
-        <h4 className="font-display text-xl sm:text-2xl font-bold text-white">
+      <div className="mt-12 2xl:mt-16 p-6 sm:p-8 2xl:p-10 rounded-3xl bg-gradient-to-r from-[#181014] via-[#200e12] to-[#181014] border border-red-600/30 text-center space-y-4 shadow-2xl">
+        <h4 className="font-display text-xl sm:text-2xl 2xl:text-3xl font-bold text-white">
           Ordering for the Family or a Late Night Session?
         </h4>
-        <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm 2xl:text-base text-slate-300 max-w-xl 2xl:max-w-2xl mx-auto leading-relaxed">
           All food is freshly oven-baked and prepared upon order. Order online now for fast counter pickup or hot local delivery across Carrickfergus!
         </p>
         <div>
           <button
             onClick={onOpenCart}
-            className="cartoon-btn-primary inline-flex items-center gap-2 px-6 sm:px-8 py-3 rounded-xl text-sm font-bold text-white shadow-xl active:scale-95 transition-transform"
+            className="cartoon-btn-primary inline-flex items-center gap-2 px-7 sm:px-9 py-3.5 rounded-2xl text-sm 2xl:text-base font-bold text-white shadow-xl active:scale-95 transition-transform"
           >
             <span>View Food Cart & Order Online</span>
           </button>

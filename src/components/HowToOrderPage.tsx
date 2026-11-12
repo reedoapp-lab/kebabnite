@@ -13,26 +13,26 @@ export const HowToOrderPage: React.FC<HowToOrderPageProps> = ({
   onOpenNotepad,
 }) => {
   return (
-    <div className="py-6 sm:py-12 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8 sm:space-y-12">
+    <div className="py-6 sm:py-12 px-3 sm:px-6 lg:px-8 fluid-4k-container space-y-8 sm:space-y-12 animate-soft-fade">
       
       {/* Page Header */}
-      <div className="text-center max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600/15 border border-red-500/30 text-red-400 text-xs font-bold mb-3">
+      <div className="text-center max-w-2xl 2xl:max-w-3xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600/15 border border-red-500/30 text-red-400 text-xs 2xl:text-sm font-bold mb-3">
           <span>⚡ Fast & Easy Food Ordering</span>
         </div>
-        <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+        <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-white tracking-tight">
           How to Order & Payment Guide
         </h1>
-        <p className="text-xs sm:text-base text-slate-300 mt-2">
+        <p className="text-xs sm:text-base 2xl:text-lg text-slate-300 mt-2 max-w-xl mx-auto">
           Order your favourite hot kebabs, pizzas, burgers and deals online in minutes with transparent payments and live order tracking.
         </p>
       </div>
 
       {/* 4 Step Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 2xl:gap-8">
         
         {/* Step 1 */}
-        <div className="cartoon-card p-5 sm:p-6 flex flex-col justify-between relative h-full">
+        <div className="cartoon-card p-5 sm:p-6 2xl:p-7 flex flex-col justify-between relative h-full rounded-3xl">
           <div>
             <div className="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-700 text-amber-400 font-display font-black text-2xl flex items-center justify-center mb-4">
               1

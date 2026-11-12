@@ -235,12 +235,12 @@ export const NeedHelpBot: React.FC<NeedHelpBotProps> = ({ onNavigate, onOpenCart
 
       {/* Chat Window Modal */}
       {isOpen && (
-        <div className="fixed inset-x-3 bottom-24 sm:bottom-24 sm:right-6 sm:left-auto sm:w-[420px] max-h-[580px] h-[80vh] z-50 rounded-2xl bg-gradient-to-b from-[#181114] to-[#0d0d10] border-2 border-red-600/60 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+        <div className="fixed inset-x-3 bottom-24 sm:bottom-24 sm:right-6 sm:left-auto sm:w-[440px] 2xl:w-[480px] max-h-[600px] 2xl:max-h-[680px] h-[80vh] z-50 rounded-3xl bg-gradient-to-b from-[#181114] to-[#0d0d10] border border-red-600/40 shadow-2xl flex flex-col overflow-hidden animate-soft-fade">
           
           {/* Chat Header */}
           <div className="p-3.5 sm:p-4 bg-gradient-to-r from-red-700 via-red-800 to-neutral-900 border-b border-red-600/40 flex items-center justify-between text-white">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-neutral-950/80 border border-red-400/40 flex items-center justify-center text-amber-400 shadow">
+              <div className="w-10 h-10 rounded-2xl bg-neutral-950/80 border border-red-400/40 flex items-center justify-center text-amber-400 shadow">
                 <Bot className="w-5 h-5" />
               </div>
               <div>

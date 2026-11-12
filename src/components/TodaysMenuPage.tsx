@@ -155,9 +155,9 @@ export const TodaysMenuPage: React.FC<TodaysMenuPageProps> = ({ onAddToOrder, on
   };
 
   return (
-    <div className="py-6 sm:py-8 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8 sm:space-y-10 animate-fade-in">
+    <div className="py-6 sm:py-8 px-3 sm:px-6 lg:px-8 fluid-4k-container space-y-8 sm:space-y-10 animate-soft-fade">
       
-      {/* Toast Notification */}
+      {/* Toast Notification with Soft Edges */}
       {addedNotice && (
         <div className="fixed top-24 right-4 z-50 bg-red-600 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 border border-red-400 animate-bounce">
           <CheckCircle2 className="w-5 h-5 text-amber-300" />
@@ -165,24 +165,24 @@ export const TodaysMenuPage: React.FC<TodaysMenuPageProps> = ({ onAddToOrder, on
         </div>
       )}
 
-      {/* Top Hero Banner with Real-time Clock & Store Status */}
-      <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#170e13] via-[#240c14] to-[#170e13] border-2 border-red-600/40 p-4 sm:p-8 lg:p-10 shadow-2xl">
-        <div className="relative z-10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-5 sm:gap-6">
-          <div className="space-y-3 text-center md:text-left flex-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/20 border border-red-500/50 text-red-400 text-xs font-bold">
+      {/* Top Hero Banner with Real-time Clock & Store Status (Soft Edges & 4K Scaling) */}
+      <div className="relative overflow-hidden rounded-3xl 2xl:rounded-[36px] bg-gradient-to-r from-[#170e13] via-[#240c14] to-[#170e13] border border-red-600/30 p-5 sm:p-8 lg:p-10 2xl:p-12 shadow-2xl">
+        <div className="relative z-10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-5 sm:gap-6 2xl:gap-8">
+          <div className="space-y-3.5 text-center md:text-left flex-1">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600/20 border border-red-500/50 text-red-400 text-xs 2xl:text-sm font-bold">
               <span className={`w-2 h-2 rounded-full ${isOpen ? 'bg-emerald-400 live-pulse' : 'bg-amber-400'}`} />
               <span>LIVE KITCHEN STATUS · {dayName.toUpperCase()}</span>
             </div>
 
-            <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+            <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-black text-white tracking-tight">
               Today's Menu & Specials
             </h1>
 
-            <p className="text-slate-300 text-xs sm:text-base max-w-xl">
+            <p className="text-slate-300 text-xs sm:text-base 2xl:text-lg max-w-xl 2xl:max-w-2xl leading-relaxed">
               Freshly roasted oven kebabs, hot pizzas, and hearty hogies prepared to order at 18A High Street, Carrickfergus.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4 text-xs sm:text-sm font-medium text-slate-300 pt-1 sm:pt-2">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4 2xl:gap-6 text-xs sm:text-sm 2xl:text-base font-medium text-slate-300 pt-1 sm:pt-2">
               <div className="flex items-center gap-1.5 text-amber-400 font-bold">
                 <Clock className="w-4 h-4" />
                 <span>UK Time: {ukTimeStr || '4:00 PM'}</span>
@@ -198,22 +198,22 @@ export const TodaysMenuPage: React.FC<TodaysMenuPageProps> = ({ onAddToOrder, on
             </div>
           </div>
 
-          {/* Quick Call Action Card */}
-          <div className="shrink-0 cartoon-card p-4 sm:p-5 bg-[#0e0e12] border border-red-600/50 flex flex-col items-center text-center space-y-2.5 w-full md:w-auto md:min-w-[260px]">
-            <span className="text-[11px] font-bold text-red-400 uppercase tracking-wider">
+          {/* Quick Call Action Card with Soft Edges */}
+          <div className="shrink-0 cartoon-card p-5 sm:p-6 2xl:p-7 bg-[#0e0e12] border border-red-600/40 rounded-3xl flex flex-col items-center text-center space-y-3 w-full md:w-auto md:min-w-[280px]">
+            <span className="text-[11px] 2xl:text-xs font-bold text-red-400 uppercase tracking-wider">
               Quick Phone Ordering
             </span>
-            <div className="font-display text-xl sm:text-2xl font-black text-white font-mono">
+            <div className="font-display text-xl sm:text-2xl 2xl:text-3xl font-black text-white font-mono">
               {SHOP_INFO.displayPhone}
             </div>
             <a
               href={`tel:${SHOP_INFO.phone}`}
-              className="cartoon-btn-call w-full py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm font-bold shadow-lg"
+              className="cartoon-btn-call w-full py-3 px-4 rounded-2xl flex items-center justify-center gap-2 text-sm 2xl:text-base font-bold shadow-lg"
             >
               <Phone className="w-4 h-4 animate-bounce" />
               <span>Tap to Call & Order</span>
             </a>
-            <span className="text-[10px] text-slate-400">
+            <span className="text-[10px] 2xl:text-xs text-slate-400">
               Kitchen prep time approx 15–20 mins
             </span>
           </div>
@@ -327,36 +327,36 @@ export const TodaysMenuPage: React.FC<TodaysMenuPageProps> = ({ onAddToOrder, on
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-6 gap-4 sm:gap-6 2xl:gap-7">
           {todaysChefPicks.map((item) => (
             <div
               key={item.id}
-              className="cartoon-card overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:border-red-500/70 h-full"
+              className="cartoon-card overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:border-red-500/70 h-full rounded-3xl"
             >
-              <div className="relative w-full h-44 overflow-hidden bg-black">
+              <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-black">
                 <img
                   src={item.image}
                   alt={item.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-sm border border-red-500/40 px-2.5 py-0.5 rounded-full text-[10px] font-bold text-amber-400">
+                <div className="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-sm border border-red-500/40 px-2.5 py-0.5 rounded-full text-[10px] 2xl:text-xs font-bold text-amber-400">
                   {item.badge}
                 </div>
-                <div className="absolute top-2.5 right-2.5 bg-red-600 px-2.5 py-0.5 rounded-full text-xs font-mono font-bold text-white shadow-md">
+                <div className="absolute top-2.5 right-2.5 bg-red-600 px-2.5 py-0.5 rounded-full text-xs 2xl:text-sm font-mono font-bold text-white shadow-md">
                   £{item.price.toFixed(2)}
                 </div>
               </div>
 
-              <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-4">
+              <div className="p-4 sm:p-5 2xl:p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-red-400">
+                  <span className="text-[10px] 2xl:text-xs font-bold uppercase tracking-wider text-red-400">
                     {item.category}
                   </span>
-                  <h3 className="font-display text-lg font-bold text-white mt-0.5 group-hover:text-red-400 transition-colors">
+                  <h3 className="font-display text-lg 2xl:text-xl font-bold text-white mt-0.5 group-hover:text-red-400 transition-colors">
                     {item.name}
                   </h3>
-                  <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+                  <p className="text-xs 2xl:text-sm text-slate-300 mt-2 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -371,13 +371,13 @@ export const TodaysMenuPage: React.FC<TodaysMenuPageProps> = ({ onAddToOrder, on
                         quantity: 1,
                       })
                     }
-                    className="flex-1 py-2 px-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-red-500/30 text-white text-xs font-bold transition-all text-center"
+                    className="flex-1 py-2.5 px-3 rounded-2xl bg-neutral-900/90 hover:bg-neutral-800 border border-red-500/30 text-white text-xs 2xl:text-sm font-bold transition-all text-center active:scale-95"
                   >
                     + Add to Order
                   </button>
                   <a
                     href={`tel:${SHOP_INFO.phone}`}
-                    className="cartoon-btn-call py-2 px-3.5 rounded-xl text-white text-xs font-bold flex items-center justify-center gap-1"
+                    className="cartoon-btn-call py-2.5 px-3.5 rounded-2xl text-white text-xs font-bold flex items-center justify-center gap-1 active:scale-95"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     <span>Call</span>

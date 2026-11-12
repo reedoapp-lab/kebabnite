@@ -164,7 +164,7 @@ export const MyOrdersPage: React.FC<MyOrdersPageProps> = ({
   };
 
   return (
-    <div className="py-6 sm:py-12 px-3 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-8 sm:space-y-10 min-h-[75vh]">
+    <div className="py-6 sm:py-12 px-3 sm:px-6 lg:px-8 fluid-4k-container max-w-6xl 2xl:max-w-7xl mx-auto space-y-8 sm:space-y-10 min-h-[75vh] animate-soft-fade">
       
       {/* Back to Home Button */}
       <button
@@ -172,22 +172,22 @@ export const MyOrdersPage: React.FC<MyOrdersPageProps> = ({
           onNavigate('home');
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
-        className="inline-flex items-center gap-2 text-xs font-bold text-red-500 hover:text-white transition-colors"
+        className="inline-flex items-center gap-2 text-xs 2xl:text-sm font-bold text-red-500 hover:text-white transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Back to Home</span>
       </button>
 
       {/* Header */}
-      <div className="text-center max-w-2xl mx-auto space-y-3">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600/15 border border-red-500/30 text-red-400 text-xs font-bold">
+      <div className="text-center max-w-2xl 2xl:max-w-3xl mx-auto space-y-3">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600/15 border border-red-500/30 text-red-400 text-xs 2xl:text-sm font-bold">
           <Package className="w-3.5 h-3.5" />
           <span>Supabase Live Orders Database</span>
         </div>
-        <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+        <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-black text-white tracking-tight">
           My Previous Orders
         </h1>
-        <p className="text-sm sm:text-base text-slate-300">
+        <p className="text-sm sm:text-base 2xl:text-lg text-slate-300 leading-relaxed">
           Enter your contact phone number to track live status or view receipts of past orders placed at Kebab Nite Carrickfergus.
         </p>
       </div>
@@ -200,19 +200,19 @@ export const MyOrdersPage: React.FC<MyOrdersPageProps> = ({
         </div>
       )}
 
-      {/* Search Bar Box */}
-      <div className="cartoon-card p-5 sm:p-7 bg-[#111116] border border-red-900/40 max-w-2xl mx-auto shadow-2xl">
+      {/* Search Bar Box with Soft Edges */}
+      <div className="cartoon-card p-6 sm:p-8 bg-[#111116] border border-red-900/40 max-w-2xl 2xl:max-w-3xl mx-auto shadow-2xl rounded-3xl">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             handleSearch();
           }}
-          className="space-y-3"
+          className="space-y-3.5"
         >
-          <label className="text-xs font-bold uppercase tracking-wider text-slate-300 block">
+          <label className="text-xs 2xl:text-sm font-bold uppercase tracking-wider text-slate-300 block">
             Enter Phone Number Used For Order
           </label>
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <div className="relative flex-1">
               <Phone className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
@@ -220,13 +220,13 @@ export const MyOrdersPage: React.FC<MyOrdersPageProps> = ({
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 placeholder="e.g. 07700 900123 or 02893..."
-                className="w-full pl-10 pr-4 py-3 rounded-xl bg-neutral-900 border border-neutral-700 text-white text-sm font-medium placeholder-slate-500 focus:outline-none focus:border-red-500"
+                className="w-full pl-10 pr-4 py-3 rounded-2xl bg-neutral-900 border border-neutral-700/80 text-white text-sm 2xl:text-base font-medium placeholder-slate-500 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all"
               />
             </div>
             <button
               type="submit"
               disabled={isLoading}
-              className="cartoon-btn-primary px-6 py-3 rounded-xl text-white font-display text-sm font-bold flex items-center justify-center gap-2 shadow-lg disabled:opacity-50"
+              className="cartoon-btn-primary px-7 py-3 rounded-2xl text-white font-display text-sm 2xl:text-base font-bold flex items-center justify-center gap-2 shadow-lg disabled:opacity-50 active:scale-95"
             >
               {isLoading ? (
                 <>
@@ -241,7 +241,7 @@ export const MyOrdersPage: React.FC<MyOrdersPageProps> = ({
               )}
             </button>
           </div>
-          <p className="text-[11px] text-slate-400">
+          <p className="text-[11px] 2xl:text-xs text-slate-400">
             💡 Queries the Supabase orders database directly by your phone number.
           </p>
         </form>

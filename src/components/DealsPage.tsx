@@ -11,80 +11,80 @@ export const DealsPage: React.FC<DealsPageProps> = ({ onAddToOrder }) => {
   const boxDeals = MENU_ITEMS.filter((i) => i.category === 'boxes_deals');
 
   return (
-    <div className="py-6 sm:py-12 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8 sm:space-y-12">
+    <div className="py-6 sm:py-12 px-3 sm:px-6 lg:px-8 fluid-4k-container space-y-8 sm:space-y-12">
       
       {/* Page Title */}
-      <div className="text-center max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600/15 border border-red-500/30 text-red-400 text-xs font-bold mb-3">
+      <div className="text-center max-w-3xl 2xl:max-w-4xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600/15 border border-red-500/30 text-red-400 text-xs 2xl:text-sm font-bold mb-3">
           <Gift className="w-3.5 h-3.5" />
           <span>Carrickfergus Big Feasts & Bundles</span>
         </div>
-        <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+        <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-white tracking-tight">
           Deals, Boxes & Group Feasts
         </h1>
-        <p className="text-xs sm:text-base text-slate-300 mt-2">
+        <p className="text-xs sm:text-base 2xl:text-lg text-slate-300 mt-2 max-w-2xl mx-auto">
           From our famous 10" and 12" Munchy Boxes to full family pizza bundles. All freshly oven-baked for rapid collection or hot door-to-door delivery.
         </p>
         {/* Quick CTA */}
         <div className="mt-4 sm:mt-5 flex justify-center">
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-neutral-900 border border-red-500/30 shadow-lg">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl text-xs sm:text-sm 2xl:text-base font-bold text-white bg-neutral-900/90 border border-red-500/30 shadow-lg">
             <span>✨ All deals available for Online Order & Fast Delivery</span>
           </div>
         </div>
       </div>
 
       {/* Weekday Specials Section */}
-      <div className="bg-[#121215] p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-red-900/40 shadow-xl">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+      <div className="bg-[#121215] p-4 sm:p-8 2xl:p-10 rounded-3xl border border-red-900/30 shadow-2xl">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 sm:mb-8">
           <div>
-            <div className="flex items-center gap-2 text-red-500 font-bold text-xs uppercase tracking-wider">
+            <div className="flex items-center gap-2 text-red-500 font-bold text-xs 2xl:text-sm uppercase tracking-wider">
               <Clock className="w-4 h-4" />
               <span>Monday – Thursday · 5PM to 9PM</span>
             </div>
-            <h2 className="font-display text-xl sm:text-2xl font-bold text-white mt-1">
+            <h2 className="font-display text-xl sm:text-2xl 2xl:text-3xl font-bold text-white mt-1">
               Weekday £15 Specials
             </h2>
           </div>
-          <span className="text-xs text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full self-start sm:self-auto font-semibold">
+          <span className="text-xs 2xl:text-sm text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3.5 py-1 rounded-full self-start sm:self-auto font-semibold">
             Order Online for Delivery or Collection
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 2xl:gap-6">
           {WEEKDAY_SPECIALS.map((sp) => (
             <div
               key={sp.day}
-              className="cartoon-card overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#18181c] to-[#0e0e11] h-full"
+              className="cartoon-card overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#18181c] to-[#0e0e11] h-full rounded-3xl"
             >
               {sp.image && (
-                <div className="relative w-full h-32 overflow-hidden bg-black">
+                <div className="relative w-full h-36 2xl:h-44 overflow-hidden bg-black">
                   <img
                     src={sp.image}
                     alt={sp.title}
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#131316] via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#141318] via-transparent to-transparent pointer-events-none" />
                 </div>
               )}
 
-              <div className="p-4 flex-1 flex flex-col justify-between">
+              <div className="p-5 2xl:p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <span className="text-xs font-black text-amber-400 block mb-1">
+                  <span className="text-xs 2xl:text-sm font-black text-amber-400 block mb-1">
                     {sp.day}
                   </span>
-                  <h3 className="font-display text-lg font-bold text-white">
+                  <h3 className="font-display text-lg 2xl:text-xl font-bold text-white">
                     {sp.title}
                   </h3>
                   <div className="mt-2 flex items-baseline gap-2">
-                    <span className="font-mono text-xl font-black text-amber-400">
+                    <span className="font-mono text-xl 2xl:text-2xl font-black text-amber-400">
                       £{sp.price.toFixed(2)}
                     </span>
-                    <span className="text-xs text-slate-400 line-through">
+                    <span className="text-xs 2xl:text-sm text-slate-400 line-through">
                       £{sp.regularPrice.toFixed(2)}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+                  <p className="text-xs 2xl:text-sm text-slate-300 mt-2 leading-relaxed">
                     {sp.desc}
                   </p>
                 </div>
@@ -98,7 +98,7 @@ export const DealsPage: React.FC<DealsPageProps> = ({ onAddToOrder }) => {
                       quantity: 1,
                     })
                   }
-                  className="mt-4 w-full py-2 px-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-red-500/30 text-white text-xs font-bold transition-all text-center"
+                  className="mt-4 w-full py-2.5 px-3 rounded-2xl bg-neutral-900/90 hover:bg-neutral-800 border border-red-500/30 text-white text-xs 2xl:text-sm font-bold transition-all text-center active:scale-95"
                 >
                   + Add to Order
                 </button>
@@ -110,68 +110,68 @@ export const DealsPage: React.FC<DealsPageProps> = ({ onAddToOrder }) => {
 
       {/* Mega Feast & Pizza Boxes */}
       <div>
-        <div className="flex items-center gap-2 mb-6">
+        <div className="flex items-center gap-2 mb-6 sm:mb-8">
           <Users className="w-5 h-5 text-red-500" />
-          <h2 className="font-display text-2xl font-bold text-white">
+          <h2 className="font-display text-2xl 2xl:text-3xl font-bold text-white">
             Sharing Boxes & Party Meals
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-4 sm:gap-6 2xl:gap-7">
           {boxDeals.map((box) => (
             <div
               key={box.id}
-              className="cartoon-card overflow-hidden flex flex-col justify-between group transition-all duration-200 hover:-translate-y-1 h-full"
+              className="cartoon-card overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1 h-full rounded-3xl"
             >
               {/* Realistic Box Photo */}
               {box.image && (
-                <div className="relative w-full h-48 overflow-hidden bg-black border-b border-red-900/30">
+                <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-black border-b border-red-900/30">
                   <img
                     src={box.image}
                     alt={box.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#131316] via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#141318] via-transparent to-transparent pointer-events-none" />
                   
                   <div className="absolute top-3 left-3">
                     {box.badge ? (
-                      <span className="text-[10px] font-black uppercase px-2.5 py-1 rounded-md bg-red-600 text-white shadow">
+                      <span className="text-[10px] 2xl:text-xs font-black uppercase px-2.5 py-1 rounded-xl bg-red-600 text-white shadow">
                         {box.badge}
                       </span>
                     ) : (
-                      <span className="text-[10px] font-black uppercase px-2.5 py-1 rounded-md bg-black/80 text-white border border-neutral-700">
+                      <span className="text-[10px] 2xl:text-xs font-black uppercase px-2.5 py-1 rounded-xl bg-black/80 text-white border border-neutral-700">
                         Sharing Feast
                       </span>
                     )}
                   </div>
 
-                  <div className="absolute bottom-3 right-3 bg-black/90 backdrop-blur-md px-3 py-1 rounded-xl border border-red-500/40">
-                    <span className="font-mono text-base font-black text-amber-400">
+                  <div className="absolute bottom-3 right-3 bg-black/85 backdrop-blur-md px-3 py-1 rounded-2xl border border-red-500/40">
+                    <span className="font-mono text-base 2xl:text-lg font-black text-amber-400">
                       £{box.price.toFixed(2)}
                     </span>
                   </div>
                 </div>
               )}
 
-              <div className="p-5 flex-1 flex flex-col justify-between">
+              <div className="p-5 2xl:p-6 flex-1 flex flex-col justify-between">
                 <div>
                   {!box.image && (
                     <div className="flex items-start justify-between gap-2 mb-2">
-                      <span className="text-[10px] font-black uppercase px-2.5 py-1 rounded-md bg-red-600 text-white">
+                      <span className="text-[10px] 2xl:text-xs font-black uppercase px-2.5 py-1 rounded-xl bg-red-600 text-white">
                         {box.badge || 'Sharing Feast'}
                       </span>
-                      <span className="font-mono text-xl font-black text-amber-400">
+                      <span className="font-mono text-xl 2xl:text-2xl font-black text-amber-400">
                         £{box.price.toFixed(2)}
                       </span>
                     </div>
                   )}
 
-                  <h3 className="font-display text-xl font-bold text-white group-hover:text-red-400 transition-colors">
+                  <h3 className="font-display text-xl 2xl:text-2xl font-bold text-white group-hover:text-red-400 transition-colors">
                     {box.name}
                   </h3>
 
-                  <p className="text-xs text-slate-300 mt-2.5 leading-relaxed">
+                  <p className="text-xs 2xl:text-sm text-slate-300 mt-2.5 leading-relaxed">
                     {box.description}
                   </p>
                 </div>
@@ -186,7 +186,7 @@ export const DealsPage: React.FC<DealsPageProps> = ({ onAddToOrder }) => {
                         quantity: 1,
                       })
                     }
-                    className="cartoon-btn-primary w-full py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow active:scale-95 transition-transform"
+                    className="cartoon-btn-primary w-full py-2.5 px-3 rounded-2xl text-xs 2xl:text-sm font-bold flex items-center justify-center gap-1.5 shadow active:scale-95 transition-transform"
                   >
                     <Plus className="w-3.5 h-3.5" />
                     <span>+ Add Deal to Food Cart</span>
