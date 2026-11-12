@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Trash2, Phone, Plus, Minus, Copy, Check } from 'lucide-react';
+import { X, Trash2, Phone, Plus, Minus, Copy, Check, CreditCard } from 'lucide-react';
 import { SHOP_INFO } from '../data/menuData';
 import { OrderItem } from '../types';
 
@@ -10,6 +10,7 @@ interface OrderDrawerProps {
   onUpdateQuantity: (index: number, newQty: number) => void;
   onRemoveItem: (index: number) => void;
   onClearOrder: () => void;
+  onOpenCheckout: () => void;
 }
 
 export const OrderDrawer: React.FC<OrderDrawerProps> = ({
@@ -19,6 +20,7 @@ export const OrderDrawer: React.FC<OrderDrawerProps> = ({
   onUpdateQuantity,
   onRemoveItem,
   onClearOrder,
+  onOpenCheckout,
 }) => {
   const [copied, setCopied] = React.useState(false);
 
@@ -50,21 +52,21 @@ export const OrderDrawer: React.FC<OrderDrawerProps> = ({
         <div className="p-4 border-b border-neutral-800 bg-[#141418] flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl bg-red-600/20 border border-red-500/40 flex items-center justify-center text-red-500 font-bold">
-              📝
+              🛒
             </div>
             <div>
               <h2 className="font-display font-bold text-lg text-white leading-tight">
-                Your Order Notepad
+                Your Food Cart
               </h2>
               <p className="text-xs text-amber-400">
-                Ready to read out when you call Kebab Nite
+                Online order for fast delivery or collection
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
             className="p-2 text-slate-300 hover:text-white rounded-lg hover:bg-neutral-800 transition-colors"
-            aria-label="Close drawer"
+            aria-label="Close Food Cart"
           >
             <X className="w-5 h-5" />
           </button>
@@ -79,23 +81,23 @@ export const OrderDrawer: React.FC<OrderDrawerProps> = ({
               </div>
               <div>
                 <h3 className="font-display font-bold text-white text-base">
-                  Your notepad is empty!
+                  Your Food Cart is empty!
                 </h3>
                 <p className="text-xs text-slate-400 mt-1 max-w-xs">
-                  Browse our menu and tap <strong>"+ Add to Order"</strong> on any kebabs, hogies, pizzas, or deals.
+                  Browse our menu and tap <strong>"+ Add to Food Cart"</strong> on any kebabs, hogies, pizzas, or deals.
                 </p>
               </div>
               <button
                 onClick={onClose}
                 className="cartoon-btn-primary px-5 py-2.5 rounded-xl text-xs font-bold text-white tracking-wide"
               >
-                Browse Menu
+                Browse Menu & Order Online
               </button>
             </div>
           ) : (
             <>
               <div className="flex items-center justify-between text-xs text-slate-400 px-1">
-                <span>{totalItems} item{totalItems > 1 ? 's' : ''} in notepad</span>
+                <span>{totalItems} item{totalItems > 1 ? 's' : ''} in Food Cart</span>
                 <button
                   onClick={onClearOrder}
                   className="flex items-center gap-1 text-red-400 hover:text-red-300 transition-colors"
@@ -171,7 +173,7 @@ export const OrderDrawer: React.FC<OrderDrawerProps> = ({
               </div>
               <div className="flex justify-between text-slate-400 text-[11px]">
                 <span>Delivery in Carrickfergus</span>
-                <span>From £2.50 (paid to driver)</span>
+                <span>From £2.50</span>
               </div>
               <div className="flex justify-between text-red-400 font-bold text-base pt-1 border-t border-neutral-800">
                 <span>Total Estimated</span>
@@ -179,19 +181,29 @@ export const OrderDrawer: React.FC<OrderDrawerProps> = ({
               </div>
             </div>
 
-            {/* Direct Call to Order Button (Red & White) */}
-            <a
-              href={`tel:${SHOP_INFO.phone}`}
-              className="cartoon-btn-call w-full py-3.5 rounded-xl flex items-center justify-center gap-2.5 text-white font-display font-bold text-base shadow-xl"
+            {/* Primary: Proceed to Online Checkout */}
+            <button
+              onClick={() => {
+                onClose();
+                onOpenCheckout();
+              }}
+              className="cartoon-btn-primary w-full py-3.5 rounded-xl flex items-center justify-center gap-2.5 text-white font-display font-bold text-base shadow-xl active:scale-98 transition-all"
             >
-              <Phone className="w-5 h-5 animate-bounce" />
-              <span>Call Shop: {SHOP_INFO.displayPhone}</span>
-            </a>
+              <CreditCard className="w-5 h-5 text-amber-300" />
+              <span>Proceed to Online Payment</span>
+            </button>
+
+            {/* Subtle assistance phone text */}
+            <div className="text-center">
+              <span className="text-[11px] text-slate-400">
+                Counter queries? <a href={`tel:${SHOP_INFO.phone}`} className="text-red-400 font-bold hover:underline">Call {SHOP_INFO.displayPhone}</a>
+              </span>
+            </div>
 
             {/* Copy order button */}
             <button
               onClick={handleCopyOrder}
-              className="w-full py-2 px-3 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-slate-200 hover:text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
+              className="w-full py-2 px-3 rounded-lg bg-neutral-950 hover:bg-neutral-900 border border-neutral-800 text-slate-300 hover:text-white text-xs font-medium flex items-center justify-center gap-1.5 transition-colors"
             >
               {copied ? (
                 <>
@@ -206,8 +218,8 @@ export const OrderDrawer: React.FC<OrderDrawerProps> = ({
               )}
             </button>
 
-            <p className="text-[11px] text-center text-slate-400 italic">
-              💡 Tip: When staff answers, mention collection or delivery first!
+            <p className="text-[11px] text-center text-slate-400">
+              🔒 Secure online card & Apple Pay powered by Stripe • Optional Cash on Delivery
             </p>
           </div>
         )}

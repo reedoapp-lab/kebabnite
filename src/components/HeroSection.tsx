@@ -29,10 +29,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
           className="relative rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-red-600/30 shadow-[0_20px_50px_rgba(0,0,0,0.95)] bg-black group w-full"
         >
           <picture className="block w-full h-auto">
-            <source srcSet="/assets/aistudio/hero_bite_v2.webp" type="image/webp" />
+            <source srcSet="/assets/aistudio/A_Bite_of_Perfection__2__8ce69a99.webp" type="image/webp" />
             <img
-              src="/assets/aistudio/A_Bite_of_Perfection__1__fee95437.png"
-              alt="Craving Late-Night? Taste Kebab Nite. Delivery Order: 028 9332 1805, Store: 18A High street, Carrickfergus, BT38 7AF"
+              src="/assets/aistudio/A_Bite_of_Perfection__2__8ce69a99.png"
+              alt="Craving Late-Night? Taste Kebab Nite. Delivery Order: Online orders available, Store: 18A High street, Carrickfergus, BT38 7AF"
               className="w-full h-auto object-cover block"
               referrerPolicy="no-referrer"
               loading="eager"

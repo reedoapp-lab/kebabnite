@@ -27,13 +27,9 @@ export const DealsPage: React.FC<DealsPageProps> = ({ onAddToOrder }) => {
         </p>
         {/* Quick CTA */}
         <div className="mt-4 sm:mt-5 flex justify-center">
-          <a
-            href={`tel:${SHOP_INFO.phone}`}
-            className="cartoon-btn-call inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white shadow-lg"
-          >
-            <Phone className="w-4 h-4" />
-            <span>Call to Order: {SHOP_INFO.displayPhone}</span>
-          </a>
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-neutral-900 border border-red-500/30 shadow-lg">
+            <span>✨ All deals available for Online Order & Fast Delivery</span>
+          </div>
         </div>
       </div>
 
@@ -50,7 +46,7 @@ export const DealsPage: React.FC<DealsPageProps> = ({ onAddToOrder }) => {
             </h2>
           </div>
           <span className="text-xs text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full self-start sm:self-auto font-semibold">
-            Order by calling {SHOP_INFO.displayPhone}
+            Order Online for Delivery or Collection
           </span>
         </div>
 
@@ -180,7 +176,7 @@ export const DealsPage: React.FC<DealsPageProps> = ({ onAddToOrder }) => {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-3 border-t border-neutral-800 flex items-center gap-2">
+                <div className="mt-6 pt-3 border-t border-neutral-800">
                   <button
                     onClick={() =>
                       onAddToOrder({
@@ -190,19 +186,11 @@ export const DealsPage: React.FC<DealsPageProps> = ({ onAddToOrder }) => {
                         quantity: 1,
                       })
                     }
-                    className="cartoon-btn-primary flex-1 py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow"
+                    className="cartoon-btn-primary w-full py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow active:scale-95 transition-transform"
                   >
                     <Plus className="w-3.5 h-3.5" />
-                    <span>Add to Order Notepad</span>
+                    <span>+ Add Deal to Food Cart</span>
                   </button>
-
-                  <a
-                    href={`tel:${SHOP_INFO.phone}`}
-                    className="cartoon-btn-call p-2.5 rounded-xl text-white"
-                    title="Call to order"
-                  >
-                    <Phone className="w-4 h-4" />
-                  </a>
                 </div>
               </div>
             </div>

@@ -25,8 +25,6 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'todays-menu', label: "Today's Menu", isLive: true },
     { id: 'menu', label: 'Full Menu' },
     { id: 'deals', label: 'Deals & Boxes' },
-    { id: 'location', label: 'Location & Hours' },
-    { id: 'how-to-order', label: 'Order Guide' },
   ];
 
   return (
@@ -34,7 +32,7 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Top Banner Notice: Black & Red */}
       <div className="bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white text-[11px] sm:text-xs py-1.5 px-3 sm:px-4 text-center font-bold tracking-wide">
         <span className="block truncate">
-          🔥 Serving Carrickfergus · Open Today From 4:00 PM · Call: <strong>{SHOP_INFO.displayPhone}</strong>
+          🔥 Serving Carrickfergus · Open Today From 4:00 PM · Online Ordering Available
         </span>
       </div>
 
@@ -101,16 +99,16 @@ export const Header: React.FC<HeaderProps> = ({
             })}
           </nav>
 
-          {/* Zone 3: Primary Action & Quick Order List */}
+          {/* Zone 3: Primary Action & Food Cart */}
           <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-            {/* Order Notepad button */}
+            {/* Food Cart button */}
             <button
               onClick={() => setIsDrawerOpen(true)}
               className="relative flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-red-500/30 text-white text-xs font-bold transition-all shadow-sm"
-              title="View my phone order list"
+              title="View my Food Cart"
             >
               <ShoppingBag className="w-4 h-4 text-amber-400" />
-              <span className="hidden md:inline">Order List</span>
+              <span className="hidden md:inline">Food Cart</span>
               {totalItems > 0 && (
                 <span className="px-1.5 py-0.2 text-[10px] font-black rounded-full bg-red-600 text-white">
                   {totalItems}
@@ -118,16 +116,14 @@ export const Header: React.FC<HeaderProps> = ({
               )}
             </button>
 
-            {/* Header Call button (Red & White) */}
-            <a
-              href={`tel:${SHOP_INFO.phone}`}
-              className="cartoon-btn-call flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold tracking-wide shadow-md whitespace-nowrap"
+            {/* Header Order Online button (without phone number) */}
+            <button
+              onClick={() => setIsDrawerOpen(true)}
+              className="cartoon-btn-primary flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold tracking-wide shadow-md whitespace-nowrap active:scale-95 transition-transform"
             >
-              <Phone className="w-3.5 h-3.5 animate-bounce" />
-              <span className="hidden md:inline">Order:</span>
-              <span className="hidden sm:inline font-mono text-xs">{SHOP_INFO.displayPhone}</span>
-              <span className="sm:hidden font-bold text-xs">Call</span>
-            </a>
+              <ShoppingBag className="w-4 h-4" />
+              <span>Order Online</span>
+            </button>
 
             {/* Mobile / Tablet Menu Hamburger */}
             <button
@@ -175,13 +171,16 @@ export const Header: React.FC<HeaderProps> = ({
             );
           })}
           <div className="pt-2">
-            <a
-              href={`tel:${SHOP_INFO.phone}`}
-              className="cartoon-btn-call w-full py-3 rounded-xl flex items-center justify-center gap-2 text-base font-bold shadow-lg min-h-[46px]"
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setIsDrawerOpen(true);
+              }}
+              className="cartoon-btn-primary w-full py-3 rounded-xl flex items-center justify-center gap-2 text-base font-bold shadow-lg min-h-[46px]"
             >
-              <Phone className="w-5 h-5" />
-              <span>Call Shop: {SHOP_INFO.displayPhone}</span>
-            </a>
+              <ShoppingBag className="w-5 h-5" />
+              <span>View Food Cart & Order Online</span>
+            </button>
           </div>
         </div>
       )}

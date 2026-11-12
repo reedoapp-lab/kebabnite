@@ -8,11 +8,15 @@ import { DealsPage } from './components/DealsPage';
 import { LocationPage } from './components/LocationPage';
 import { HowToOrderPage } from './components/HowToOrderPage';
 import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
+import { MyOrdersPage } from './components/MyOrdersPage';
+import { NeedHelpBot } from './components/NeedHelpBot';
 import { Footer } from './components/Footer';
 import { MobileBottomCallBar } from './components/MobileBottomCallBar';
 import { OrderDrawer } from './components/OrderDrawer';
 import { TodayLiveTicker } from './components/TodayLiveTicker';
 import { TodaysMenuPage } from './components/TodaysMenuPage';
+import { CheckoutModal } from './components/CheckoutModal';
+import { AddedToCartToast, ToastData } from './components/AddedToCartToast';
 import { PageId, OrderItem } from './types';
 import { SHOP_INFO } from './data/menuData';
 import { Phone, Star } from 'lucide-react';
@@ -21,8 +25,10 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<PageId>('home');
   const [orderList, setOrderList] = useState<OrderItem[]>([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState<boolean>(false);
+  const [cartToast, setCartToast] = useState<ToastData | null>(null);
 
-  // Add item or increment quantity in notepad
+  // Add item or increment quantity in food cart with subtle UX toast
   const handleAddToOrder = (newItem: OrderItem) => {
     setOrderList((prev) => {
       const existingIndex = prev.findIndex(
@@ -34,6 +40,12 @@ export default function App() {
         return updated;
       }
       return [...prev, newItem];
+    });
+
+    // Pop-up notification for immediate tactile feedback
+    setCartToast({
+      item: newItem,
+      id: Date.now(),
     });
   };
 
@@ -105,8 +117,8 @@ export default function App() {
                     ⚡
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-sm text-white">Quick Phone Ordering</h4>
-                    <p className="text-xs text-slate-300">One tap on your phone, fast collection or delivery.</p>
+                    <h4 className="font-display font-bold text-sm text-white">Fast Online Ordering</h4>
+                    <p className="text-xs text-slate-300">Order in Food Cart with live order tracking & easy checkout.</p>
                   </div>
                 </div>
               </div>
@@ -178,7 +190,7 @@ export default function App() {
               </div>
             </section>
 
-            {/* Quick Call & Location Banner (Black & Red theme) */}
+            {/* Quick Order Online & Call Banner (Black & Red theme) */}
             <section className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
               <div className="cartoon-card p-5 sm:p-8 lg:p-10 bg-gradient-to-r from-[#170e12] via-[#220d14] to-[#170e12] border border-red-600/40 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-6">
                 <div className="space-y-2 text-center md:text-left">
@@ -186,31 +198,31 @@ export default function App() {
                     Ready to eat?
                   </span>
                   <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
-                    Place Your Order by Phone Now
+                    Order Online for Collection or Delivery
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-300 max-w-lg">
-                    18A High street, Carrickfergus · Call <strong className="text-red-400">{SHOP_INFO.displayPhone}</strong> for immediate counter pickup or fast local delivery.
+                    18A High street, Carrickfergus · Order directly with your Food Cart or ring <strong className="text-red-400">{SHOP_INFO.displayPhone}</strong>.
                   </p>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full md:w-auto">
-                  <a
-                    href={`tel:${SHOP_INFO.phone}`}
-                    className="cartoon-btn-call w-full sm:w-auto px-6 py-3.5 rounded-2xl flex items-center justify-center gap-2 text-white font-display text-base font-bold shadow-xl whitespace-nowrap"
-                  >
-                    <Phone className="w-5 h-5 animate-pulse" />
-                    <span>Call {SHOP_INFO.displayPhone}</span>
-                  </a>
-
                   <button
                     onClick={() => {
                       setCurrentPage('menu');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="cartoon-btn-primary w-full sm:w-auto px-5 py-3.5 rounded-2xl text-white font-display text-sm font-bold shadow-md whitespace-nowrap text-center"
+                    className="cartoon-btn-primary w-full sm:w-auto px-6 py-3.5 rounded-2xl text-white font-display text-sm font-bold shadow-xl whitespace-nowrap text-center"
                   >
-                    View Full Menu
+                    Order Online Now
                   </button>
+
+                  <a
+                    href={`tel:${SHOP_INFO.phone}`}
+                    className="w-full sm:w-auto px-5 py-3.5 rounded-2xl bg-neutral-900 border border-neutral-700 hover:border-red-500 text-slate-200 font-display text-xs sm:text-sm font-bold shadow-md whitespace-nowrap text-center flex items-center justify-center gap-2"
+                  >
+                    <Phone className="w-4 h-4 text-red-500" />
+                    <span>Call {SHOP_INFO.displayPhone}</span>
+                  </a>
                 </div>
               </div>
             </section>
@@ -248,6 +260,14 @@ export default function App() {
             onNavigate={setCurrentPage}
           />
         )}
+
+        {currentPage === 'my-orders' && (
+          <MyOrdersPage
+            onNavigate={setCurrentPage}
+            onAddToCart={handleAddToOrder}
+            onOpenCart={() => setIsDrawerOpen(true)}
+          />
+        )}
       </main>
 
       {/* Global Footer */}
@@ -257,6 +277,7 @@ export default function App() {
       <MobileBottomCallBar
         orderList={orderList}
         setIsDrawerOpen={setIsDrawerOpen}
+        onOpenCheckout={() => setIsCheckoutOpen(true)}
       />
 
       {/* Order Notepad Slide-Over Drawer */}
@@ -267,6 +288,34 @@ export default function App() {
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveItem}
         onClearOrder={handleClearOrder}
+        onOpenCheckout={() => {
+          setIsDrawerOpen(false);
+          setIsCheckoutOpen(true);
+        }}
+      />
+
+      {/* Online Checkout & Order Modal (Cash & Card on Handover) */}
+      <CheckoutModal
+        isOpen={isCheckoutOpen}
+        onClose={() => setIsCheckoutOpen(false)}
+        orderList={orderList}
+        onAddToOrder={handleAddToOrder}
+        onUpdateQuantity={handleUpdateQuantity}
+        onRemoveItem={handleRemoveItem}
+        onClearOrder={handleClearOrder}
+      />
+
+      {/* Floating AI Need Help & Order Tracking Bot (Right side) */}
+      <NeedHelpBot
+        onNavigate={setCurrentPage}
+        onOpenCart={() => setIsDrawerOpen(true)}
+      />
+
+      {/* Subtle 'Added to Cart' Pop-up Notification */}
+      <AddedToCartToast
+        toast={cartToast}
+        onClose={() => setCartToast(null)}
+        onOpenCart={() => setIsDrawerOpen(true)}
       />
 
     </div>

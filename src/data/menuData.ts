@@ -1219,38 +1219,129 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Three freshly baked soft-centre triple chocolate cookies.',
   },
   {
-    id: 'drink-can',
-    name: 'Soft Drink Cans (330ml)',
+    id: 'drink-pepsi-can',
+    name: 'Pepsi Can (330ml)',
     category: 'drinks_desserts',
     price: 1.50,
-    description: 'Coke, Diet Coke, Coke Zero, Fanta Orange, Sprite, Irn-Bru.',
+    description: 'Chilled classic Pepsi can (330ml).',
+    popular: true,
+  },
+  {
+    id: 'drink-coca-cola-can',
+    name: 'Coca-Cola Classic (330ml)',
+    category: 'drinks_desserts',
+    price: 1.60,
+    description: 'Crisp, chilled classic Coca-Cola can.',
+    popular: true,
+  },
+  {
+    id: 'drink-ayran',
+    name: 'Traditional Chilled Ayran (250ml)',
+    category: 'drinks_desserts',
+    price: 1.80,
+    description: 'Authentic Turkish chilled salted yoghurt drink. Refreshing, creamy and the perfect traditional pairing for oven kebabs and hogies.',
+    popular: true,
+  },
+  {
+    id: 'drink-diet-coke-can',
+    name: 'Diet Coke (330ml)',
+    category: 'drinks_desserts',
+    price: 1.50,
+    description: 'Chilled Diet Coke can, zero sugar.',
+  },
+  {
+    id: 'drink-coke-zero-can',
+    name: 'Coke Zero (330ml)',
+    category: 'drinks_desserts',
+    price: 1.50,
+    description: 'Zero calories, full Coca-Cola taste.',
+  },
+  {
+    id: 'drink-7up-can',
+    name: '7Up Lemon & Lime (330ml)',
+    category: 'drinks_desserts',
+    price: 1.50,
+    description: 'Zesty sparkling lemon and lime soda.',
+  },
+  {
+    id: 'drink-fanta-orange',
+    name: 'Fanta Orange (330ml)',
+    category: 'drinks_desserts',
+    price: 1.50,
+    description: 'Sweet, bright sparkling orange soda.',
+  },
+  {
+    id: 'drink-irn-bru',
+    name: 'Irn-Bru (330ml)',
+    category: 'drinks_desserts',
+    price: 1.50,
+    description: "Scotland's favourite original sparkling soft drink.",
+  },
+  {
+    id: 'drink-tango-apple',
+    name: 'Tango Apple (330ml)',
+    category: 'drinks_desserts',
+    price: 1.50,
+    description: 'Crisp tangy sparkling apple drink.',
   },
   {
     id: 'drink-bottle-500ml',
     name: 'Soft Drink Bottle (500ml)',
     category: 'drinks_desserts',
     price: 2.00,
-    description: 'Coke, Diet Coke, Fanta, Sprite 500ml bottle.',
+    description: 'Choose Pepsi, Coke, Diet Coke, or Fanta Orange 500ml bottle.',
   },
   {
     id: 'drink-bottle-large',
-    name: 'Large Soft Drink Bottle (1.75L)',
+    name: 'Large Sharing Bottle (1.75L)',
     category: 'drinks_desserts',
     price: 3.50,
-    description: 'Coke, Diet Coke, Fanta, Sprite for sharing with the family.',
+    description: 'Large Pepsi, Coke, Diet Coke, or Fanta for sharing with the family.',
   },
   {
     id: 'drink-water',
-    name: 'Bottled Spring Water',
+    name: 'Bottled Spring Water (500ml)',
     category: 'drinks_desserts',
     price: 1.20,
-    description: 'Still mineral spring water.',
+    description: 'Still British mineral spring water.',
+  },
+  {
+    id: 'drink-sparkling-water',
+    name: 'Sparkling Mineral Water (500ml)',
+    category: 'drinks_desserts',
+    price: 1.50,
+    description: 'Crisp chilled sparkling mineral water.',
   },
   {
     id: 'drink-capri-sun',
-    name: 'Capri Sun Fruit Juice',
+    name: 'Capri Sun Fruit Juice Pouch',
     category: 'drinks_desserts',
     price: 1.00,
-    description: 'Orange or Blackcurrant pouch.',
+    description: 'Orange or Blackcurrant fruit juice pouch.',
   },
 ];
+
+export interface UpsellItem {
+  id: string;
+  name: string;
+  category: 'drinks' | 'sides' | 'dips';
+  price: number;
+  description: string;
+  badge?: string;
+}
+
+export const RECOMMENDED_UPSELLS: UpsellItem[] = [
+  { id: 'drink-pepsi-can', name: 'Pepsi Can (330ml)', category: 'drinks', price: 1.50, description: 'Chilled refreshing classic Pepsi', badge: 'Popular' },
+  { id: 'drink-coca-cola-can', name: 'Coca-Cola (330ml)', category: 'drinks', price: 1.60, description: 'Classic ice-cold Coca-Cola', badge: 'Top Seller' },
+  { id: 'drink-ayran', name: 'Traditional Ayran (250ml)', category: 'drinks', price: 1.80, description: 'Authentic chilled savoury yoghurt drink - best with kebabs!', badge: 'House Special' },
+  { id: 'drink-diet-coke-can', name: 'Diet Coke (330ml)', category: 'drinks', price: 1.50, description: 'Zero sugar crisp refresher' },
+  { id: 'drink-7up-can', name: '7Up Lemon-Lime (330ml)', category: 'drinks', price: 1.50, description: 'Crisp citrus fizz' },
+  { id: 'drink-fanta-orange', name: 'Fanta Orange (330ml)', category: 'drinks', price: 1.50, description: 'Sparkling fruity orange' },
+  { id: 'drink-irn-bru', name: 'Irn-Bru (330ml)', category: 'drinks', price: 1.50, description: "Original Scottish fizzy drink" },
+  { id: 'dip-garlic-mayo', name: 'House Garlic Mayo Dip', category: 'dips', price: 1.20, description: 'Secret recipe rich garlic dip', badge: 'Essential' },
+  { id: 'dip-house-chilli', name: 'House Chilli Sauce Dip', category: 'dips', price: 1.20, description: 'Fiery Turkish kebab chilli dip', badge: 'Spicy' },
+  { id: 'side-garlic-cheese-chips', name: 'Garlic Cheese Chips', category: 'sides', price: 4.80, description: 'Chips with garlic butter & melted cheddar', badge: 'Fave' },
+  { id: 'side-onion-rings', name: 'Crispy Onion Rings (10pcs)', category: 'sides', price: 3.80, description: 'Crispy golden battered rings' },
+  { id: 'side-naan-warm', name: 'Large Warm Plain Naan', category: 'sides', price: 2.50, description: 'Fresh oven-warmed soft bread' },
+];
+

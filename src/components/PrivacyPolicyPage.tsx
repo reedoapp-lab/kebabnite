@@ -112,36 +112,54 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
         <section className="space-y-3">
           <div className="flex items-center gap-2 text-white font-display font-bold text-lg">
             <span className="text-red-500">04.</span>
-            <h2>Payment Security & Card Details</h2>
+            <h2>Online Payment Processing & Security (Stripe Gateway)</h2>
           </div>
           <p>
-            We do not store or capture full credit/debit card numbers on this website. Payment is conducted either via:
+            When ordering through our website, online payments are processed through our certified payment partner, Stripe:
           </p>
-          <ul className="space-y-1.5 pl-4 list-disc marker:text-red-500">
-            <li><strong>Cash on Delivery or Collection:</strong> Handled in person.</li>
-            <li><strong>Card Terminals:</strong> Processed in real-time through encrypted, certified portable chip & pin / contactless payment terminals handled by authorized delivery staff or counter staff.</li>
+          <ul className="space-y-2 pl-4 list-disc marker:text-red-500">
+            <li>
+              <strong>1. Primary Online Payment System (Stripe Gateway):</strong> You can pay directly online using debit and credit cards (Visa, Mastercard, American Express, Maestro) or 1-click mobile wallets (Apple Pay, Google Pay). All payment transactions are encrypted using industry-standard 256-bit SSL encryption. Card numbers and security codes (CVC/CVV) are tokenized directly with Stripe and are never stored on our local takeaway servers.
+            </li>
+            <li>
+              <strong>2. Optional Backup Payment System (Cash on Delivery / Collection):</strong> For customers who do not have a card with them at the time of ordering, Cash on Delivery or Collection is available as an optional fallback system. Payment is collected in cash upon physical food handover.
+            </li>
           </ul>
         </section>
 
-        {/* Section 5 */}
-        <section className="space-y-3">
+        {/* Section 5: Platform & Online Ordering Fee (5%) */}
+        <section className="space-y-3 p-4 sm:p-5 rounded-2xl bg-neutral-900/90 border border-red-500/30">
           <div className="flex items-center gap-2 text-white font-display font-bold text-lg">
-            <span className="text-red-500">05.</span>
-            <h2>Cookies & Browser Storage</h2>
+            <span className="text-amber-400">05.</span>
+            <h2>Platform & Online Ordering Fee (5%)</h2>
           </div>
-          <p>
-            Our website uses standard essential local cookies and session storage strictly necessary to operate our digital menu, remember your Order Notepad between pages, and ensure smooth, responsive browsing. We do not employ third-party advertising trackers or sell browsing profiles.
+          <p className="text-slate-200">
+            To provide continuous online ordering, secure Stripe payment gateway compliance, automated kitchen ticketing, real-time database synchronization, and digital tracking, a <strong>5% platform and online ordering fee</strong> is added to the total sum of each order placed through this website.
           </p>
+          <ul className="space-y-1 pl-4 list-disc marker:text-amber-400 text-xs text-slate-300">
+            <li>
+              <strong>Universal Application:</strong> The 5% fee applies across all payment methods (including Online Card via Stripe, Apple Pay, and the optional Cash on Delivery fallback).
+            </li>
+            <li>
+              <strong>Transparent Summary Before Transaction:</strong> The fee is itemized and shown only at the summary of the payment before transactions so that you have total transparency before completing your order.
+            </li>
+            <li>
+              <strong>Purpose of Fee:</strong> This supports secure payment gateway maintenance, PCI-DSS compliance, real-time order tracking servers, and packaging.
+            </li>
+          </ul>
         </section>
 
-        {/* Section 6 */}
+        {/* Section 6: Supabase Database Storage */}
         <section className="space-y-3">
           <div className="flex items-center gap-2 text-white font-display font-bold text-lg">
             <span className="text-red-500">06.</span>
-            <h2>Information Sharing (Our No-Sale Policy)</h2>
+            <h2>Transactions Database (Supabase) & Record Keeping</h2>
           </div>
           <p>
-            <strong>We will never sell, rent, lease, or trade your personal information to third parties.</strong> Your delivery address and telephone number are shared exclusively with our trusted delivery drivers and counter personnel for the singular purpose of completing your order.
+            When you complete an order online, transaction metadata (including order number, selected items, allergen notes, delivery address, contact telephone, and payment status) is safely recorded in our <strong>Supabase</strong> relational database.
+          </p>
+          <p>
+            Supabase uses enterprise-grade encrypted storage hosted within secure European data regions. Data is retained strictly for the duration necessary to prepare your food, resolve any customer service queries, and comply with UK statutory accounting rules.
           </p>
         </section>
 
@@ -149,6 +167,28 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
         <section className="space-y-3">
           <div className="flex items-center gap-2 text-white font-display font-bold text-lg">
             <span className="text-red-500">07.</span>
+            <h2>Cookies & Browser Storage</h2>
+          </div>
+          <p>
+            Our website uses standard essential local cookies and session storage strictly necessary to operate our digital menu, remember your Order Notepad between pages, and ensure smooth, responsive browsing. We do not employ third-party advertising trackers or sell browsing profiles.
+          </p>
+        </section>
+
+        {/* Section 8 */}
+        <section className="space-y-3">
+          <div className="flex items-center gap-2 text-white font-display font-bold text-lg">
+            <span className="text-red-500">08.</span>
+            <h2>Information Sharing (Our Strict No-Sale Policy)</h2>
+          </div>
+          <p>
+            <strong>We will never sell, rent, lease, or trade your personal information to third parties.</strong> Your delivery address and telephone number are shared exclusively with our trusted delivery drivers and counter personnel for the singular purpose of completing your order.
+          </p>
+        </section>
+
+        {/* Section 09 */}
+        <section className="space-y-3">
+          <div className="flex items-center gap-2 text-white font-display font-bold text-lg">
+            <span className="text-red-500">09.</span>
             <h2>Your Rights Under UK GDPR</h2>
           </div>
           <p>
@@ -161,11 +201,11 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
           </ul>
         </section>
 
-        {/* Section 8 */}
+        {/* Section 10 */}
         <section className="space-y-3 pt-4 border-t border-neutral-800">
           <div className="flex items-center gap-2 text-white font-display font-bold text-lg">
-            <span className="text-red-500">08.</span>
-            <h2>Contact Us Regarding Privacy</h2>
+            <span className="text-red-500">10.</span>
+            <h2>Contact Us Regarding Privacy & Orders</h2>
           </div>
           <p>
             If you have questions regarding this Privacy Policy, wish to exercise any of your data protection rights, or have a question regarding a past order, please reach out to our team:

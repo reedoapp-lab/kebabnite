@@ -5,11 +5,13 @@ import { OrderItem } from '../types';
 
 interface MenuSectionProps {
   onAddToOrder: (item: OrderItem) => void;
+  onOpenCart?: () => void;
   initialCategory?: string;
 }
 
 export const MenuSection: React.FC<MenuSectionProps> = ({
   onAddToOrder,
+  onOpenCart,
   initialCategory = 'all',
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
@@ -75,7 +77,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
       {addedNotice && (
         <div className="fixed top-20 right-4 z-50 bg-red-600 text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 text-xs font-bold animate-bounce border border-red-400">
           <Check className="w-4 h-4 text-white" />
-          <span>Added "{addedNotice}" to Order Notepad!</span>
+          <span>Added "{addedNotice}" to Food Cart!</span>
         </div>
       )}
 
@@ -89,18 +91,19 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
             Our Complete Menu
           </h1>
           <p className="text-xs sm:text-sm text-slate-300 mt-1">
-            Pick your favorites, add them to your notepad, then tap to call <strong className="text-red-400">{SHOP_INFO.displayPhone}</strong>.
+            Pick your favourites, customize items, and order online for fast local delivery or collection.
           </p>
         </div>
 
-        {/* Quick Call Button */}
-        <a
-          href={`tel:${SHOP_INFO.phone}`}
-          className="cartoon-btn-call px-4 py-2.5 rounded-xl text-white text-xs font-bold flex items-center justify-center gap-2 self-stretch sm:self-auto shadow-md"
-        >
-          <Phone className="w-4 h-4" />
-          <span>Call: {SHOP_INFO.displayPhone}</span>
-        </a>
+        {/* View Food Cart Button */}
+        {onOpenCart && (
+          <button
+            onClick={onOpenCart}
+            className="cartoon-btn-primary px-4 py-2.5 rounded-xl text-white text-xs font-bold flex items-center justify-center gap-2 self-stretch sm:self-auto shadow-md"
+          >
+            <span>View Food Cart</span>
+          </button>
+        )}
       </div>
 
       {/* Search & Dietary Filters Bar */}
@@ -326,22 +329,14 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                   </div>
 
                   {/* Card Actions */}
-                  <div className="mt-4 pt-3 border-t border-neutral-800 flex items-center gap-2">
+                  <div className="mt-4 pt-3 border-t border-neutral-800">
                     <button
                       onClick={() => handleAddItem(item)}
-                      className="cartoon-btn-primary flex-1 py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 tracking-wide shadow"
+                      className="cartoon-btn-primary w-full py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 tracking-wide shadow active:scale-95 transition-transform"
                     >
                       <Plus className="w-3.5 h-3.5" />
-                      <span>Add to Order Notepad</span>
+                      <span>+ Add to Food Cart</span>
                     </button>
-
-                    <a
-                      href={`tel:${SHOP_INFO.phone}`}
-                      className="p-2 rounded-xl bg-neutral-800 hover:bg-red-600 text-white transition-colors border border-neutral-700"
-                      title={`Call now to order ${item.name}`}
-                    >
-                      <Phone className="w-3.5 h-3.5" />
-                    </a>
                   </div>
 
                 </div>
@@ -353,20 +348,21 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
       )}
 
       {/* Bottom Takeaway Info */}
-      <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-[#181014] via-[#200e12] to-[#181014] border border-red-600/30 text-center">
-        <h4 className="font-display text-xl font-bold text-white mb-2">
+      <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#181014] via-[#200e12] to-[#181014] border border-red-600/30 text-center space-y-3">
+        <h4 className="font-display text-xl sm:text-2xl font-bold text-white">
           Ordering for the Family or a Late Night Session?
         </h4>
-        <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto mb-4">
-          All food is freshly oven-baked and prepared upon order. Call our counter directly on <strong className="text-red-400">{SHOP_INFO.displayPhone}</strong> for fast collection or quick local delivery across Carrickfergus!
+        <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
+          All food is freshly oven-baked and prepared upon order. Order online now for fast counter pickup or hot local delivery across Carrickfergus!
         </p>
-        <a
-          href={`tel:${SHOP_INFO.phone}`}
-          className="cartoon-btn-call inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white shadow-xl"
-        >
-          <Phone className="w-4 h-4 animate-bounce" />
-          <span>Call {SHOP_INFO.displayPhone} Now</span>
-        </a>
+        <div>
+          <button
+            onClick={onOpenCart}
+            className="cartoon-btn-primary inline-flex items-center gap-2 px-6 sm:px-8 py-3 rounded-xl text-sm font-bold text-white shadow-xl active:scale-95 transition-transform"
+          >
+            <span>View Food Cart & Order Online</span>
+          </button>
+        </div>
       </div>
 
     </section>

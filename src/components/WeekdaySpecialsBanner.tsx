@@ -23,7 +23,7 @@ export const WeekdaySpecialsBanner: React.FC<WeekdaySpecialsBannerProps> = ({ on
           Weekday £15 Specials
         </h2>
         <p className="text-xs sm:text-sm text-slate-300 mt-2">
-          Massive portions, unbeatable value. Call <strong className="text-red-400">{SHOP_INFO.displayPhone}</strong> to claim tonight's deal.
+          Massive portions, unbeatable value. Order online for collection or fast delivery across Carrickfergus.
         </p>
       </div>
 
@@ -88,7 +88,7 @@ export const WeekdaySpecialsBanner: React.FC<WeekdaySpecialsBannerProps> = ({ on
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-neutral-800 flex flex-col gap-2">
+                <div className="mt-4 pt-3 border-t border-neutral-800">
                   <button
                     onClick={() =>
                       onAddToOrder({
@@ -98,18 +98,10 @@ export const WeekdaySpecialsBanner: React.FC<WeekdaySpecialsBannerProps> = ({ on
                         quantity: 1,
                       })
                     }
-                    className="w-full py-2 px-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-red-500/30 text-white text-xs font-bold transition-all text-center"
+                    className="cartoon-btn-primary w-full py-2.5 px-3 rounded-xl text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow active:scale-95 transition-transform"
                   >
-                    + Add to Order Notepad
+                    <span>+ Add to Food Cart</span>
                   </button>
-
-                  <a
-                    href={`tel:${SHOP_INFO.phone}`}
-                    className="cartoon-btn-call w-full py-2 px-3 rounded-xl text-white text-xs font-bold flex items-center justify-center gap-1.5"
-                  >
-                    <Phone className="w-3.5 h-3.5" />
-                    <span>Call to Order</span>
-                  </a>
                 </div>
               </div>
             </div>
